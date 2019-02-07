@@ -1,4 +1,4 @@
-package model;
+package com.example.spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,25 +7,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "DIRECCION")
-public class Direccion {
+@Table(name="TELEFONO")
+public class Telefono {
 	private int id;
-	private String direccion;
+	private int numTel;
 	@Id
 	@GeneratedValue
-	@Column(name = "DIRECCION_ID")
+	@Column(name="TELEFONO_ID")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getDireccion() {
-		return direccion;
+	public int getNumTel() {
+		return numTel;
 	}
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setNumTel(int numTel) {
+		this.numTel = numTel;
 	}
+	
 	
 
 }

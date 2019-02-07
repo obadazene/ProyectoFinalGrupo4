@@ -55,8 +55,8 @@ public class Control {
 		//model.addObject("contacto", add Contacto());
 		//return model;
 	
-		model.addAttribute("contacto", new Contacto());
-		return "AltaContacto";
+		model.addAttribute("AddContacto", new Contacto());
+		return "AddContacto";
 	
 	}
 

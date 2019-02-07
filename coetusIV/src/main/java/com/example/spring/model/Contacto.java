@@ -1,4 +1,4 @@
-package model;
+package com.example.spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +8,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PERSONA") //nombre transitorio para la tabla
-public class Persona {
+public class Contacto {
 
 	private int id;
 	private String name;
 	private String apellido;
 	@Id
 	@GeneratedValue
-	@Column(name="USER_ID")
+	@Column(name="CONTACTO_ID")
 	public int getId() {
 		return id;
 	}
