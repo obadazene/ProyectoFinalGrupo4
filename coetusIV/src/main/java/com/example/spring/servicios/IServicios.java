@@ -1,4 +1,4 @@
-package service;
+package com.example.spring.servicios;
 
 import com.ejemplos.spring.model.Contacto;
 
