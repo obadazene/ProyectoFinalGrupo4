@@ -2,6 +2,8 @@ package com.example.spring.dao;
 
 import java.util.List;
 
+import com.example.spring.model.Contacto;
+
 public interface IRepositorioCustom {
 
 	//Método abstracto para añadir contacto
