@@ -33,7 +33,7 @@ public class Control {
 	public ModelAndView  listarContactos() throws Exception {
 		System.out.println("--------dentro listarContactos");
 		logger.info("-- Listado Contactos");
-		List<Contacto> listaContactos = contactoServicios.list();
+		List<Persona> listaContactos = contactoServicios.list();
 		
 		//logger.info("--"+listaContactos.toString());
 		
@@ -55,7 +55,7 @@ public class Control {
 		//model.addObject("contacto", add Contacto());
 		//return model;
 	
-		model.addAttribute("AddContacto", new Contacto());
+		model.addAttribute("AddContacto", new Persona());
 		return "AddContacto";
 	
 	}
