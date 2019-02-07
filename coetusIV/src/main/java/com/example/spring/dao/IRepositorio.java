@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 //Spring Data JpaRepository interface extends CrudRepository and provides finder methods out of the box
-public interface IRepositorio extends JpaRepository<Contacto, Integer>, IRepositorioCustom{
+public interface IRepositorio extends JpaRepository<Persona, Integer>, IRepositorioCustom{
 }

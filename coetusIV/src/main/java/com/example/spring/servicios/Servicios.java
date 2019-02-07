@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.spring.dao.IRepositorioCustom;
-import com.example.spring.model.Contacto;
+import com.example.spring.model.Persona;
 
 /*
  * @Author Antonio Portela 
@@ -21,7 +21,7 @@ public class Servicios implements IServicios {
 
 	//Metodo que llama a addContacto con el objeto userRepository
 	@Override
-	public void addContacto(Contacto contacto) {
+	public void addContacto(Persona contacto) {
 		userRepository.save(contacto);
 	}
 	//Metodo que llama a delContacto con el objeto userRepository

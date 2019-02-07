@@ -1,30 +1,30 @@
 package com.example.spring.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROVINCIA")
+@Table(name="provincia")
 public class Provincia {
-private int id;
-private String nombreProvincia;
+private int idprovincia;
+private String provincia;
 @Id
 @GeneratedValue
-@Column(name = "PROVINCIA_ID")
-public int getId() {
-	return id;
+//@Column Obada me ha dicho que lo quite, pero lo comento
+public int getIdprovincia() {
+	return idprovincia;
 }
-public void setId(int id) {
-	this.id = id;
+public void setIdprovincia(int idprovincia) {
+	this.idprovincia = idprovincia;
 }
-public String getNombreProvincia() {
-	return nombreProvincia;
+public String getProvincia() {
+	return provincia;
 }
-public void setNombreProvincia(String nombreProvincia) {
-	this.nombreProvincia = nombreProvincia;
+public void setProvincia(String provincia) {
+	this.provincia = provincia;
 }
+
 
 }
