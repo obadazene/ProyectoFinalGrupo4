@@ -48,7 +48,7 @@ public class Control {
 	
 	
 	@GetMapping( "/addContacto")// Incluido el botón altaContacto dentro del paréntesis 
-	public String newContacto(Model model) {
+	public String addContacto(Model model) {
 		logger.info("-- en Add");
 		
 		//ModelAndView model = new ModelAndView("AltaEmpleado");
@@ -58,6 +58,14 @@ public class Control {
 		model.addAttribute("AddContacto", new Contacto());
 		return "AddContacto";
 	
+	}
+	
+	//@DeleteMapping("/")
+	@GetMapping("/delete")
+	public ModelAndView delContacto(@RequestParam("id") int id) {
+		logger.info("-- en DELETE");
+		contactoServicios.delContacto(id);
+		return new ModelAndView("redirect:/");		
 	}
 
 }
