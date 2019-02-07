@@ -8,5 +8,5 @@ public interface IRepositorioCustom {
 	public List<Contacto> addContacto(Contacto contacto);
 	
 	//Método para eliminar contacto
-		public void delContacto(Contacto contacto);
+	public void delContacto(Contacto contacto);
 }
