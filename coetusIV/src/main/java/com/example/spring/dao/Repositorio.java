@@ -10,11 +10,11 @@ import com.example.spring.model.Contacto;
 
 public class Repositorio implements IRepositorioCustom {
 	
-	private Contacto contato;
+
 	
     @PersistenceContext
 	EntityManager eman;
-	
+	// crear un lista de contactos
 	@Override
 	public List<Contacto> addContacto() {
 		
