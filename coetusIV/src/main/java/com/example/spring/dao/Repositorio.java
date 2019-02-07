@@ -10,15 +10,16 @@ import com.example.spring.model.Contacto;
 
 public class Repositorio implements IRepositorioCustom {
 	
+	private Contacto contato;
+	
     @PersistenceContext
-	EntityManager em;
+	EntityManager eman;
 	
 	@Override
 	public List<Contacto> addContacto() {
 		
-		Query query = em.createNativeQuery("SELECT em.* FROM spring_data_jpa_example.username as em " +
+		Query query = eman.createNativeQuery("SELECT c.* FROM contacto as c" +
            Repositorio.class);
-        query.setParameter(1, username + "%");
         return query.getResultList();
 		
 		
