@@ -2,10 +2,13 @@ package service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
-@service
-@Transacional
+
+@Service
+@Transactional
 public class Servicios implements IServicios {
 
 	private IRepositorioCustom userRepository;
