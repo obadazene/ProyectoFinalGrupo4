@@ -30,7 +30,8 @@ public class Repositorio implements IRepositorioCustom {
 
 	@Override
 	public void delContacto(int id ) {
-		// TODO Auto-generated method stub
+		
+		
 		
 	}
 
