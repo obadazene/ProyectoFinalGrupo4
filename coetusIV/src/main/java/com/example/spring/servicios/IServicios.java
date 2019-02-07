@@ -1,7 +1,9 @@
 package com.example.spring.servicios;
 
-import com.ejemplos.spring.model.Contacto;
-
+import com.example.spring.model.Contacto;
+/*
+ * @Author Antonio Portela
+ */
 public interface IServicios {
 
 	
