@@ -15,8 +15,13 @@ public class Servicios implements IServicios {
 
 
 	@Override
-	public void add(Contacto contacto) {
+	public void addContacto(Contacto contacto) {
 		userRepository.save(contacto);
+	}
+	
+	@Override
+	public void delContacto(int id) {
+		userRepository.delete(id);
 	}
 
 
