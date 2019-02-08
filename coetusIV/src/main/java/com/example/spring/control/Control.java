@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.ejemplos.spring.model.User;
+import com.example.spring.model.Persona;
+import com.example.spring.servicios.Servicios;
 import com.spring.controller.EmpleadoController;
 import com.spring.model.Empleado;
 import com.spring.services.EmpleadoService;
@@ -25,15 +27,15 @@ import com.spring.services.EmpleadoService;
 public class Control {
 	
 	@Autowired
-	private ContactoServicios contactoServicios;
+	private Servicios servicios;
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 	
 	
-	@GetMapping("/")
-	public ModelAndView  listarContactos() throws Exception {
+	/*@GetMapping("/")
+	public ModelAndView  listarPersona() throws Exception {
 		System.out.println("--------dentro listarContactos");
 		logger.info("-- Listado Contactos");
-		List<Persona> listaContactos = contactoServicios.list();
+		List<Persona> listaContactos = servicios.list();
 		
 		//logger.info("--"+listaContactos.toString());
 		
@@ -42,30 +44,37 @@ public class Control {
 		
 		
 		ModelAndView model = new ModelAndView("ListadoContactos");
-		model.addObject("ListadoContactos", ListaContactos);
-		return model;
+		model.addObject("ListadoContactos", servicios.list);
+		return model;*/
 	}	
 	
 	
-	@GetMapping( "/addContacto")// Incluido el botón altaContacto dentro del paréntesis 
-	public String addContacto(Model model) {
+	@GetMapping( "/addPersona")// Incluido el botón altaContacto dentro del paréntesis 
+	public String addPersona(Model model) {
 		logger.info("-- en Add");
 		
 		//ModelAndView model = new ModelAndView("AltaEmpleado");
 		//model.addObject("contacto", add Contacto());
 		//return model;
 	
-		model.addAttribute("AddContacto", new Persona());
-		return "AddContacto";
+		model.addAttribute("persona", new Persona());
+		return "UserForm";
 	
 	}
 	
 	//@DeleteMapping("/")
 	@GetMapping("/delete")
-	public ModelAndView delContacto(@RequestParam("id") int id) {
+	public ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
-		contactoServicios.delContacto(id);
+		servicios.delContacto(id);
 		return new ModelAndView("redirect:/");		
+	}
+	
+	@GetMapping("/edit")
+	public String editPersonal(ModelMap model, @RequestParam("id") int id) {
+		logger.info("-- en EDIT");
+		model.addAttribute("persona", servicios.get(id));
+		return "UserForm";		
 	}
 
 }
