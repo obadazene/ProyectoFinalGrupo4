@@ -13,4 +13,6 @@ public interface IServicios {
 
 	void addPersona(Persona persona);
 
+	Persona findPersona(int id);
+
 }
