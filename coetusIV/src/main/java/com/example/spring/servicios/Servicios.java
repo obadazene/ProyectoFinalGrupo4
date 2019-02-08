@@ -42,6 +42,11 @@ public class Servicios implements IServicios {
 	}
 
 	// Método que busca una persona
+	/*
+	 * (non-Javadoc)
+	 * @see com.example.spring.servicios.IServicios#findPersona(int)
+	 * @Author Antonio
+	 */
 	@Override
 	public Persona findPersona(int id) {
 		return userRepository.findOne(id);
