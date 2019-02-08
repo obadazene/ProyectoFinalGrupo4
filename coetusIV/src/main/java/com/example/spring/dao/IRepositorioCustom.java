@@ -6,13 +6,10 @@ import com.example.spring.model.Persona;
 
 public interface IRepositorioCustom {
 
-	//Método abstracto para añadir contacto
+	// Método abstracto para añadir contacto
 
 	public List<Persona> addPersona();
 
-	
-
-	
-	//Método para eliminar contacto
+	// Método para eliminar contacto
 	public void delPersona(int id);
 }
