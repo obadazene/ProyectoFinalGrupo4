@@ -1,5 +1,6 @@
 package com.example.spring.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,8 +15,8 @@ import javax.persistence.Table;
  * @version 1.0
  */
 @Entity
-@Table(name = "persona") // nombre transitorio para la tabla
-public class Persona {
+@Table(name = "persona") // BLOQUE 2 DIAPOSITIVA 237
+public class Persona implements Serializable {
 
 	/**
 	 * El id de la persona, que es la PrimaryKey en la tabla
@@ -67,10 +68,10 @@ public class Persona {
 	public String getNombre() {
 		return nombre;
 	}
-/**
- * 
- * @param nombre setea el nombre de la persona
- */
+	/**
+	 * 
+	 * @param nombre setea el nombre de la persona
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
