@@ -16,12 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.ejemplos.spring.model.User;
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.Servicios;
-import com.spring.controller.EmpleadoController;
-import com.spring.model.Empleado;
-import com.spring.services.EmpleadoService;
+
 
 @Controller
 public class Control {
@@ -45,8 +42,8 @@ public class Control {
 		
 		ModelAndView model = new ModelAndView("ListadoContactos");
 		model.addObject("ListadoContactos", servicios.list);
-		return model;*/
-	}	
+		return model;
+	}	*/
 	
 	
 	@GetMapping( "/addPersona")// Incluido el botón altaContacto dentro del paréntesis 
@@ -66,12 +63,12 @@ public class Control {
 	@GetMapping("/delete")
 	public ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
-		servicios.delContacto(id);
+		servicios.delPersona(id);
 		return new ModelAndView("redirect:/");		
 	}
 	
 	@GetMapping("/edit")
-	public String editPersonal(ModelMap model, @RequestParam("id") int id) {
+	public String editPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en EDIT");
 		model.addAttribute("persona", servicios.get(id));
 		return "UserForm";		

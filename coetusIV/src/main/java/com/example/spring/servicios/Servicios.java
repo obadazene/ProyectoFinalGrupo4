@@ -21,12 +21,12 @@ public class Servicios implements IServicios {
 
 	//Metodo que llama a addContacto con el objeto userRepository
 	@Override
-	public void addContacto(Persona contacto) {
-		userRepository.save(contacto);
+	public void addPersona(Persona persona) {
+		userRepository.save(persona);
 	}
 	//Metodo que llama a delContacto con el objeto userRepository
 	@Override
-	public void delContacto(int id) {
+	public void delPersona(int id) {
 		userRepository.delete(id);
 	}
 

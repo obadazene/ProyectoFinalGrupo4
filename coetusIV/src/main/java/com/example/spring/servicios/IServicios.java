@@ -7,5 +7,5 @@ import com.example.spring.model.Persona;
 public interface IServicios {
 
 	
-	public void add(Persona contacto);
+	public void add(Persona persona);
 }

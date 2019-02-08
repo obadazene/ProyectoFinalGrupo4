@@ -8,11 +8,11 @@ public interface IRepositorioCustom {
 
 	//Método abstracto para añadir contacto
 
-	public List<Contacto> addContacto();
+	public List<Persona> addPersona();
 
 	
 
 	
 	//Método para eliminar contacto
-	public void delContacto(int id);
+	public void delPersona(int id);
 }
