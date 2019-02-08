@@ -4,7 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author admin
+ *
+ */
 @Entity
 @Table(name = "direccion")
 public class Direccion {

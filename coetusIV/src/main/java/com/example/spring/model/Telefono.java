@@ -8,19 +8,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "telefono")
 public class Telefono {
-	private int idtelefono;
+	private int idTelefono;
 	private String telefono;
-	private int idpersona;
+	private int idPersona;
 
 	@Id
 	@GeneratedValue
 //@Column Obada me ha dicho que lo quite, pero lo comento
 	public int getIdtelefono() {
-		return idtelefono;
+		return idTelefono;
 	}
 
 	public void setIdtelefono(int idtelefono) {
-		this.idtelefono = idtelefono;
+		this.idTelefono = idtelefono;
 	}
 
 	public String getTelefono() {
@@ -32,11 +32,11 @@ public class Telefono {
 	}
 
 	public int getIdpersona() {
-		return idpersona;
+		return idPersona;
 	}
 
 	public void setIdpersona(int idpersona) {
-		this.idpersona = idpersona;
+		this.idPersona = idpersona;
 	}
 
 }
