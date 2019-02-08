@@ -2,7 +2,7 @@ package com.example.spring.dao;
 
 import java.util.List;
 
-import com.example.spring.model.Contacto;
+import com.example.spring.model.Persona;
 
 public interface IRepositorioCustom {
 
@@ -10,7 +10,7 @@ public interface IRepositorioCustom {
 
 	public List<Contacto> addContacto();
 
-	public List<Persona> addContacto(Persona contacto);
+	
 
 	
 	//Método para eliminar contacto
