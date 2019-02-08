@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ejemplos.spring.model.User;
 import com.example.spring.dao.IRepositorioCustom;
 import com.example.spring.model.Persona;
 
@@ -18,6 +19,12 @@ import com.example.spring.model.Persona;
 public class Servicios implements IServicios {
 
 	private IRepositorioCustom userRepository;
+	
+	@Override 
+	public Persona get(int id) { 	//Método que lla al Get, se utiliza en editPersona
+		return userRepository.findOne(id);
+	}	
+	
 
 	//Metodo que llama a addContacto con el objeto userRepository
 	@Override
@@ -29,6 +36,8 @@ public class Servicios implements IServicios {
 	public void delPersona(int id) {
 		userRepository.delete(id);
 	}
+	
+
 
 
 }
