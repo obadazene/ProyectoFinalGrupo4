@@ -20,11 +20,11 @@ public class Servicios implements IServicios {
 	private IRepositorio userRepository;
 
 	@Override
-	public Persona get(int id) { // Método que lla al Get, se utiliza en editPersona
+	public Persona get(int id) { // Método que llmaa al Get, se utiliza en editPersona
 		return userRepository.findOne(id);
 	}
 
-	// Metodo que llama a addContacto con el objeto userRepository
+	// Metodo que llama addPersona con el objeto userRepository
 	@Override
 	public void addPersona(Persona persona) {
 		userRepository.save(persona);
@@ -34,6 +34,11 @@ public class Servicios implements IServicios {
 	@Override
 	public void delPersona(int id) {
 		userRepository.delete(id);
+	}
+	
+	@Override
+	public void salvarPersona(Persona persona) {// Método que llama a salvarPersona
+	       userRepository.save(persona);
 	}
 
 	// Método que busca una persona
