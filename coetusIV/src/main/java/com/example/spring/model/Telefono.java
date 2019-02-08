@@ -4,7 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * Clase Telefono
+ * Contiene información del telefono de la persona
+ * @author ManuelToledo
+ * @version1.0
+ */
 @Entity
 @Table(name = "telefono")
 public class Telefono {
