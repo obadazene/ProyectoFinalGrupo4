@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.ejemplos.spring.model.User;
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.Servicios;
 
@@ -60,18 +62,25 @@ public class Control {
 	}
 	
 	//@DeleteMapping("/")
-	@GetMapping("/delete")
+	@GetMapping("/delPersona")
 	public ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
 		servicios.delPersona(id);
 		return new ModelAndView("redirect:/");		
 	}
 	
-	@GetMapping("/edit")
+	@GetMapping("/editPersona")
 	public String editPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en EDIT");
 		model.addAttribute("persona", servicios.get(id));
 		return "UserForm";		
+	}
+	
+	@PostMapping("/salvarPersona")
+	public ModelAndView salvarPersona(@ModelAttribute Persona persona) {
+		logger.info("-- en SAVE");
+		servicios.addPersona(persona);
+		return new ModelAndView("redirect:/");
 	}
 
 }

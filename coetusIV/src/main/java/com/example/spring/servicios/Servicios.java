@@ -21,7 +21,7 @@ public class Servicios implements IServicios {
 	private IRepositorio userRepository;
 
 	@Override
-	public Persona get(int id) { // Método que llmaa al Get, se utiliza en editPersona
+	public Persona getPersona(int id) { // Método que llmaa al Get, se utiliza en editPersona
 		return userRepository.findOne(id);
 	}
 

@@ -7,13 +7,15 @@ import com.example.spring.model.Persona;
  */
 public interface IServicios {
 
-	public Persona get(int id);
+	public Persona getPersona(int id);
 	
-	public void save(Persona persona);//Es el equivalente a Update en el ejercicio 11
+	public void updatePersona(Persona persona);//Es el equivalente a Update en el ejercicio 11
 	
-	public void add(Persona persona);
+	public void addPersona(Persona persona);
 	
-	public void delete(int id);
+	public void delPersona(int id);
+
+	void salvarPersona(Persona persona);
 	
 
 }
