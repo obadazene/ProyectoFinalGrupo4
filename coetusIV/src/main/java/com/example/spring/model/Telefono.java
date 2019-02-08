@@ -1,14 +1,15 @@
 package com.example.spring.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 /**
- * Clase Telefono
- * Contiene información del telefono de la persona
- * @author ManuelToledo
- * @version1.0
+ * Clase Telefono Contiene información del telefono de la persona
+ * 
+ * @author ManuelToledo @version1.0
  */
 @Entity
 @Table(name = "telefono")
@@ -19,7 +20,7 @@ public class Telefono {
 
 	@Id
 	@GeneratedValue
-//@Column Obada me ha dicho que lo quite, pero lo comento
+	@Column(name = "idtelefono")
 	public int getIdtelefono() {
 		return idTelefono;
 	}
@@ -28,6 +29,7 @@ public class Telefono {
 		this.idTelefono = idtelefono;
 	}
 
+	@Column(name = "telefono")
 	public String getTelefono() {
 		return telefono;
 	}
@@ -36,6 +38,7 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 
+	@Column(name = "idpersona")
 	public int getIdpersona() {
 		return idPersona;
 	}
