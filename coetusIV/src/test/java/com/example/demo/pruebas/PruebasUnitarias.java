@@ -13,17 +13,7 @@ import com.example.spring.dao.Repositorio;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PruebasUnitarias {
-	private static Logger logger;
 	
-	@Autowired
-	private Repositorio repositorio;
 	
-	//La anotación @Test marca el siguiente método como una prueba JUnit. 
-	@Test
-	public void testDelPersona() {
-		
-		
-	}
-	 
 	
 }
