@@ -14,7 +14,7 @@ public class Repositorio implements IRepositorioCustom {
 
 	// crear un lista de personas
 	@Override
-	public List<Persona> addPersona() {
+	public List<Persona> getPersonas() {
 
 		Query query = eman.createNativeQuery("SELECT c.* FROM persona as c" + Repositorio.class);
 		return query.getResultList();
@@ -22,7 +22,14 @@ public class Repositorio implements IRepositorioCustom {
 	}
 
 	@Override
+	public List<Persona> addPersona() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public void delPersona(int id) {
+		// TODO Auto-generated method stub
 
 	}
 
