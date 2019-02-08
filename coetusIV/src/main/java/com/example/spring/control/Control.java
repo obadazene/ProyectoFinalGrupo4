@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.ejemplos.spring.model.User;
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.Servicios;
 
