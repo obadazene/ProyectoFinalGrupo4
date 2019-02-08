@@ -10,7 +10,7 @@ public interface IServicios {
 	public Persona get(int id);
 		
 
-	Persona findPersona(int id);
+	public Persona findPersona(int id);
 
 	void addPersona(Persona persona);
 
