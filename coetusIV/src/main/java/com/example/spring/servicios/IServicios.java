@@ -1,6 +1,5 @@
 package com.example.spring.servicios;
 
-import com.ejemplos.spring.model.User;
 import com.example.spring.model.Persona;
 /*
  * @Author Antonio Portela
@@ -8,6 +7,8 @@ import com.example.spring.model.Persona;
 public interface IServicios {
 
 	public Persona get(int id);
+	
+	public void save(Persona persona);//Es el equivalente a Update en el ejercicio 11
 	
 	public void add(Persona persona);
 	
