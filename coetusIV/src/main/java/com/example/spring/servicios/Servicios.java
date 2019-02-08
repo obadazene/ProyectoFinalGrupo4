@@ -19,25 +19,22 @@ import com.example.spring.model.Persona;
 public class Servicios implements IServicios {
 
 	private IRepositorioCustom userRepository;
-	
-	@Override 
-	public Persona get(int id) { 	//Método que lla al Get, se utiliza en editPersona
-		return userRepository.findOne(id);
-	}	
-	
 
-	//Metodo que llama a addContacto con el objeto userRepository
+	@Override
+	public Persona get(int id) { // Método que lla al Get, se utiliza en editPersona
+		return userRepository.findOne(id);
+	}
+
+	// Metodo que llama a addContacto con el objeto userRepository
 	@Override
 	public void addPersona(Persona persona) {
 		userRepository.save(persona);
 	}
-	//Metodo que llama a delContacto con el objeto userRepository
+
+	// Metodo que llama a delContacto con el objeto userRepository
 	@Override
 	public void delPersona(int id) {
 		userRepository.delete(id);
 	}
-	
-
-
 
 }
