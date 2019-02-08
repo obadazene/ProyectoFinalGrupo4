@@ -20,10 +20,7 @@ public class PruebasUnitarias {
 	
 	//La anotación @Test marca el siguiente método como una prueba JUnit. 
 	@Test
-	public void delContacto(int id) {
-		
-		
-		
+	public void testDelPersona() {
 		
 		
 	}
