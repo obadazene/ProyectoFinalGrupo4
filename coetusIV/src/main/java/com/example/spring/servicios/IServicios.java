@@ -7,15 +7,15 @@ import com.example.spring.model.Persona;
  */
 public interface IServicios {
 
-	public Persona get(int id);
+	public Persona getPersona(int id);
 		
 
-	public Persona findPersona(int id);
+	public  Persona findPersona(int id);
 
-	void addPersona(Persona persona);
+	public void addPersona(Persona persona);
 
-	void delPersona(int id);
+	public void delPersona(int id);
 
-	void salvarPersona(Persona persona);
+	public void salvarPersona(Persona persona);
 
 }
