@@ -10,13 +10,14 @@ import com.example.spring.model.Persona;
 public class Repositorio implements IRepositorioCustom {
 
 	@PersistenceContext
-	EntityManager eman;
+	EntityManager em;
 
 	// crear un lista de personas
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Persona> getPersona() {
 
-		Query query = eman.createNativeQuery("SELECT c.* FROM persona as c" + Repositorio.class);
+		Query query = em.createNativeQuery("SELECT c.* FROM persona as c" + Repositorio.class);
 		return query.getResultList();
 
 	}
