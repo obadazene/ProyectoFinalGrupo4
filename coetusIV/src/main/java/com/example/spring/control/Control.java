@@ -45,8 +45,8 @@ public class Control {
 	@RequestMapping("/")
 	public String listaPersonas(ModelMap model) throws Exception {
 		logger.info("-- en Listado");		
-		model.addAttribute("userList", Iservicios.list());
-		return "UserList";
+		model.addAttribute("contactList", Iservicios.list());
+		return "ContcatList";
 	}	
 	
 	
@@ -59,7 +59,7 @@ public class Control {
 		//return model;
 	
 		model.addAttribute("persona", new Persona());
-		return "UserForm";
+		return "addContacto";
 	
 	}
 	
@@ -68,7 +68,7 @@ public class Control {
 	public String editPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en EDIT");
 		model.addAttribute("persona", Iservicios.getPersona(id));
-		return "UserForm";		
+		return "addContacto";		
 	}
 	
 	
@@ -92,7 +92,7 @@ public class Control {
 	public String findPersona(ModelMap model ,@RequestParam("id") int id) {
 		logger.info("-- en busacar");
 		model.addAttribute("persona", Iservicios.getPersona(id));
-		return "UserForm";
+		return "ContcatList";
 		
 		
 		
