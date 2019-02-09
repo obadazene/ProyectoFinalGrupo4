@@ -6,6 +6,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import com.example.spring.model.Persona;
 
+/**
+ * 
+ * @author Grupo4
+ *
+ */
 public class Repositorio implements IRepositorioCustom {
 
 	@PersistenceContext
