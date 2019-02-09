@@ -22,15 +22,16 @@ public class Direccion {
 	private String localidad;
 	private int idprovincia;
 	private int idpersona;
-	// obketo Persona
+	
+	//objeto Persona
 	@OneToOne
     @JoinColumn(name = "persona_id", referencedColumnName = "id")    
-private  Persona persona;
-	//objeto Provencia
+	private Persona persona;
 	
+	//objeto Provincia
 	@ManyToOne
 	@JoinColumn(name = "direccion")
-	private Provincia provencia;
+	private Provincia provincia;
 	
 
 	@Id
