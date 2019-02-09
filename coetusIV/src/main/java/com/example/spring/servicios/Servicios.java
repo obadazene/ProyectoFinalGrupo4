@@ -1,22 +1,29 @@
 package com.example.spring.servicios;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.example.spring.dao.IRepositorio;
-import com.example.spring.dao.IRepositorioCustom;
 import com.example.spring.model.Persona;
 
 /*
-* @Author Antonio Portela
+* @Author Groupo4
 * Clase servicios de la aplicacion
 */
 
 @Service
 @Transactional
 public class Servicios implements IServicios {
-
+	
+	
+    @Autowired
     private IRepositorio userRepository;
+    
+    @Override
+	public List<Persona> list() {
+    	return userRepository.findAll();
+	}
 
     @Override
     public Persona getPersona(int id) { // Método que llama al Get, se utiliza en editPersona
@@ -45,6 +52,8 @@ public class Servicios implements IServicios {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 	
 

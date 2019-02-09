@@ -17,7 +17,7 @@ public class Repositorio implements IRepositorioCustom {
 	@Override
 	public List<Persona> getPersona() {
 
-		Query query = em.createNativeQuery("SELECT c.* FROM persona as c" + Repositorio.class);
+		Query query = em.createNativeQuery("SELECT p.* FROM persona as p" + Repositorio.class);
 		return query.getResultList();
 
 	}
