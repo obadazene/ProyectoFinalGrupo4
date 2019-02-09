@@ -3,8 +3,11 @@ package com.example.spring.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 /**
  * 
  * @author Grupo4
@@ -19,9 +22,16 @@ public class Direccion {
 	private String localidad;
 	private int idprovincia;
 	private int idpersona;
-	
-@OneToOne(mappedBy = "direccion")
+	// obketo Persona
+	@OneToOne
+    @JoinColumn(name = "persona_id", referencedColumnName = "id")    
 private  Persona persona;
+	//objeto Provencia
+	
+	@ManyToOne
+	@JoinColumn(name = "direccion")
+	private Provincia provencia;
+	
 
 	@Id
 	@GeneratedValue

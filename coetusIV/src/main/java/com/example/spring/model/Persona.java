@@ -1,12 +1,15 @@
 package com.example.spring.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
@@ -45,10 +48,26 @@ public class Persona {
 	private Date fechaNacimiento; // también podria haber importado en vez de java.utils sql
 	
 	// object de Direccion 
-	@OneToOne
-	@JoinColumn(name = "idPersona" , referencedColumnName = "idDireccion")
+	@OneToOne(mappedBy = "personaId")
+	@JoinColumn(name = "persona_id")
 	private Direccion direccion;
+	
+	// lista de telefones
+	@OneToMany
+	@JoinColumn(name = "idPersona")
+	private List<Telefono> teleLista;
+	
+	//object provencia
+	@ManyToOne
+	@JoinColumn(name = "idpersona")
+	private Provincia prvencia;
 
+	public List<Telefono> getTeleLista() {
+		return teleLista;
+	}
+	public void setTeleLista(List<Telefono> teleLista) {
+		this.teleLista = teleLista;
+	}
 	public Direccion getDireccion() {
 		return direccion;
 	}

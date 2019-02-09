@@ -1,8 +1,12 @@
 package com.example.spring.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +14,14 @@ import javax.persistence.Table;
 public class Provincia {
 	private int idprovincia;
 	private String provincia;
+	
+	//Persona object
+	@OneToMany(mappedBy = "provencia")
+	private List<Persona> personas;
+	//objeto dirreccion
+	@OneToMany(mappedBy = "prvincia")
+	private List<Direccion> dericciones;
+	
 
 	@Id
 	@GeneratedValue
