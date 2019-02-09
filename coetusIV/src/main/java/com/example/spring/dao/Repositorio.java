@@ -14,20 +14,21 @@ public class Repositorio implements IRepositorioCustom {
 	// crear un lista de personas
 	@SuppressWarnings("unchecked")
 	@Override
+
+	// listar personas
 	public List<Persona> getPersona() {
 
-		Query query = em.createNativeQuery("SELECT p.* FROM persona as p" , Repositorio.class);
+		Query query = em.createNativeQuery("SELECT p.* FROM persona as p", Repositorio.class);
 		return query.getResultList();
 
 	}
-	
-	// busar personas por id 
+
+	// buscar personas por id
 	public Persona findPersona(int id) {
-		
-		Query query = em.createNamedQuery("select p.* from persona as p" + "where p.id like?"
-		,Repositorio.class);
-		query.setParameter(1, id +"%");
-		return (Persona)query.getResultList();
+
+		Query query = em.createNamedQuery("select p.* from persona as p" + "where p.id like ?", Repositorio.class);
+		query.setParameter(1, id + "%");
+		return (Persona) query.getResultList();
 
 	}
 

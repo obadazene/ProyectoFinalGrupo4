@@ -9,7 +9,9 @@ public interface IRepositorioCustom {
 	// Metodo que lista personas
 
 	public List<Persona> getPersona();
-	
+
+	// Metodo que busca una persona por id
+
 	public Persona findPersona(int id);
 
 }
