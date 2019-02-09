@@ -11,9 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 /**
- * Clase Persona
- * Contiene informacion de cada persona
+ * Clase Persona Contiene informacion de cada persona
+ * 
  * @author Grupo4
  * @version 1.0
  */
@@ -45,125 +46,165 @@ public class Persona {
 	 * Fecha de nacimiento de la persona
 	 */
 	private Date fechaNacimiento; // también podria haber importado en vez de java.utils sql
-	
-	// object de Direccion 
-	@OneToOne(mappedBy = "personaId")
-	@JoinColumn(name = "persona_id")
+
+	// object de Direccion
+	@OneToOne(mappedBy = "idpersona")
+	@JoinColumn(name = "idpersona")
 	private Direccion direccion;
-	
-	// lista de telefones
+
+	// lista de telefonos
 	@OneToMany
-	@JoinColumn(name = "idPersona")
+	@JoinColumn(name = "idpersona")
 	private List<Telefono> teleLista;
-	
-	//object provencia
+
+	// object provincia
 	@ManyToOne
 	@JoinColumn(name = "idpersona")
-	private Provincia prvencia;
+	private Provincia provincia;
 
 	public List<Telefono> getTeleLista() {
 		return teleLista;
 	}
+
 	public void setTeleLista(List<Telefono> teleLista) {
 		this.teleLista = teleLista;
 	}
+
 	public Direccion getDireccion() {
 		return direccion;
 	}
+
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
+
 	/**
 	 * Variable que es la PK, se autoincrementa y no puede ser null
+	 * 
 	 * @return el id de la persona
 	 */
 	@Id
 	@GeneratedValue
-	@Column (name = "idpersona")
+	@Column(name = "idpersona")
 	public int getIdpersona() {
 		return idPersona;
 	}
-/**
- * @param idpersona
- */
+
+	/**
+	 * @param idpersona
+	 */
 	public void setIdpersona(int idpersona) {
 		this.idPersona = idpersona;
 	}
-	
-/**
- * 
- * @return nombre de la persona
- */
-	@Column (name = "nombre")
+
+	/**
+	 * 
+	 * @return nombre de la persona
+	 */
+	@Column(name = "nombre")
 	public String getNombre() {
 		return nombre;
 	}
-/**
- * 
- * @param nombre setea el nombre de la persona
- */
+
+	/**
+	 * 
+	 * @param nombre setea el nombre de la persona
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-/**
- * 
- * @return devuelve el primer apellido
- */
-	@Column (name = "apellido1")
+
+	/**
+	 * 
+	 * @return devuelve el primer apellido
+	 */
+	@Column(name = "apellido1")
 	public String getApellido1() {
 		return apellido1;
 	}
-/**
- * 
- * @param apellido1 setea el primer apellido
- */
+
+	/**
+	 * 
+	 * @param apellido1 setea el primer apellido
+	 */
 	public void setApellido1(String apellido1) {
 		this.apellido1 = apellido1;
 	}
-/**
- * 
- * @return return el segundo apellido
- */
-	@Column (name = "apellido2")
+
+	/**
+	 * 
+	 * @return return el segundo apellido
+	 */
+	@Column(name = "apellido2")
 	public String getApellido2() {
 		return apellido2;
 	}
-/**
- * 
- * @param apellido2 setea el segundo apellido
- */
+
+	/**
+	 * 
+	 * @param apellido2 setea el segundo apellido
+	 */
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
 	}
-/**
- * 
- * @return devuelve el dni
- */
-	@Column (name = "dni")
+
+	/**
+	 * 
+	 * @return devuelve el dni
+	 */
+	@Column(name = "dni")
 	public String getDni() {
 		return dni;
 	}
-/**
- * 
- * @param dni setea el dni
- */
+
+	/**
+	 * 
+	 * @param dni setea el dni
+	 */
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
-/**
- * 
- * @return la fecha de nacimiento
- */
-	@Column (name = "fechanacimiento")
+
+	/**
+	 * 
+	 * @return la fecha de nacimiento
+	 */
+	@Column(name = "fechanacimiento")
 	public Date getFechanacimiento() {
 		return fechaNacimiento;
 	}
-/**
- * 
- * @param fechanacimiento setea la fecha de nacimiento
- */
+
+	/**
+	 * 
+	 * @param fechanacimiento setea la fecha de nacimiento
+	 */
 	public void setFechanacimiento(Date fechanacimiento) {
 		this.fechaNacimiento = fechanacimiento;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Persona [idPersona=");
+		builder.append(idPersona);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", apellido1=");
+		builder.append(apellido1);
+		builder.append(", apellido2=");
+		builder.append(apellido2);
+		builder.append(", dni=");
+		builder.append(dni);
+		builder.append(", fechaNacimiento=");
+		builder.append(fechaNacimiento);
+		builder.append(", direccion=");
+		builder.append(direccion);
+		builder.append(", teleLista=");
+		builder.append(teleLista);
+		builder.append(", provincia=");
+		builder.append(provincia);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
