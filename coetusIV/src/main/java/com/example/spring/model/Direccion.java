@@ -22,17 +22,16 @@ public class Direccion {
 	private String localidad;
 	private int idprovincia;
 	private int idpersona;
-	
-	//objeto Persona
+
+	// objeto Persona
 	@OneToOne
-    @JoinColumn(name = "persona_id", referencedColumnName = "id")    
+	@JoinColumn(name = "idpersona", referencedColumnName = "id")
 	private Persona persona;
-	
-	//objeto Provincia
+
+	// objeto Provincia
 	@ManyToOne
-	@JoinColumn(name = "direccion")
+	@JoinColumn(name = "idprovincia")
 	private Provincia provincia;
-	
 
 	@Id
 	@GeneratedValue
@@ -83,6 +82,29 @@ public class Direccion {
 
 	public void setIdpersona(int idpersona) {
 		this.idpersona = idpersona;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Direccion [iddireccion=");
+		builder.append(iddireccion);
+		builder.append(", direccion=");
+		builder.append(direccion);
+		builder.append(", codpostal=");
+		builder.append(codpostal);
+		builder.append(", localidad=");
+		builder.append(localidad);
+		builder.append(", idprovincia=");
+		builder.append(idprovincia);
+		builder.append(", idpersona=");
+		builder.append(idpersona);
+		builder.append(", persona=");
+		builder.append(persona);
+		builder.append(", provincia=");
+		builder.append(provincia);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }
