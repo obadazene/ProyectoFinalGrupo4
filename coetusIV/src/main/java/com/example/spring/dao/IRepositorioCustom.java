@@ -9,5 +9,7 @@ public interface IRepositorioCustom {
 	// Metodo que lista personas
 
 	public List<Persona> getPersona();
+	
+	public Persona findPersona(int id);
 
 }
