@@ -43,7 +43,7 @@ public class Control {
 	}	*/
 	
 	@RequestMapping("/")
-	public String handleRequest(ModelMap model) throws Exception {
+	public String listaPersonas(ModelMap model) throws Exception {
 		logger.info("-- en Listado");		
 		model.addAttribute("userList", Iservicios.list());
 		return "UserList";
