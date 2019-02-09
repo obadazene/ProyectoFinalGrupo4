@@ -49,8 +49,9 @@ public class Servicios implements IServicios {
 
 	@Override
 	public Persona findPersona(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return userRepository.findOne(id);
+		
 	}
 
 

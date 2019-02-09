@@ -14,5 +14,6 @@ public interface IServicios {
 	public void addPersona(Persona persona);
 	public void delPersona(int id);
 	public void salvarPersona(Persona persona);
+	
 
 }

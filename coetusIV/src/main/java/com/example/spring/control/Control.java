@@ -88,4 +88,15 @@ public class Control {
 		return new ModelAndView("redirect:/");
 	}
 
+	@GetMapping 
+	public String findPersona(ModelMap model ,@RequestParam("id") int id) {
+		logger.info("-- en busacar");
+		model.addAttribute("persona", Iservicios.getPersona(id));
+		return "UserForm";
+		
+		
+		
+	}
+	
+	
 }

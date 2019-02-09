@@ -4,8 +4,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import com.ejemplos.spring.model.User;
 import com.example.spring.model.Persona;
 
 public class Repositorio implements IRepositorioCustom {
@@ -23,12 +21,12 @@ public class Repositorio implements IRepositorioCustom {
 
 	}
 	
-	
+	// busar personas por id 
 	public Persona findPersona(int id) {
 		
 		Query query = em.createNamedQuery("select p.* from persona as p" + "where p.id like?"
 		,Repositorio.class);
-		query.setParameter(1, id+"%");
+		query.setParameter(1, id +"%");
 		return (Persona)query.getResultList();
 
 	}
