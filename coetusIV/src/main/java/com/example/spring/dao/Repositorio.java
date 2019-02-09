@@ -28,13 +28,6 @@ public class Repositorio implements IRepositorioCustom {
 
 	}
 
-	// buscar personas por id
-	public Persona findPersona(int id) {
-
-		Query query = em.createNamedQuery("select p.* from persona as p" + "where p.id like ?", Repositorio.class);
-		query.setParameter(1, id + "%");
-		return (Persona) query.getResultList();
-
-	}
+	
 
 }

@@ -15,8 +15,6 @@ public interface IRepositorioCustom {
 
 	public List<Persona> getPersona();
 
-	// Metodo que busca una persona por id
 
-	public Persona findPersona(int id);
 
 }
