@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
  * Clase Persona
@@ -41,7 +43,18 @@ public class Persona {
 	 * Fecha de nacimiento de la persona
 	 */
 	private Date fechaNacimiento; // también podria haber importado en vez de java.utils sql
+	
+	// object de Direccion 
+	@OneToOne
+	@JoinColumn(name = "idPersona" , referencedColumnName = "idDireccion")
+	private Direccion direccion;
 
+	public Direccion getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 	/**
 	 * Variable que es la PK, se autoincrementa y no puede ser null
 	 * @return el id de la persona

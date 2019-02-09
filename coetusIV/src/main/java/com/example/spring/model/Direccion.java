@@ -3,6 +3,7 @@ package com.example.spring.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
  * 
@@ -18,6 +19,9 @@ public class Direccion {
 	private String localidad;
 	private int idprovincia;
 	private int idpersona;
+	
+@OneToOne(mappedBy = "direccion")
+private  Persona persona;
 
 	@Id
 	@GeneratedValue
