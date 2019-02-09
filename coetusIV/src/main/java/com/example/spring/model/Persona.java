@@ -10,7 +10,7 @@ import javax.persistence.Table;
 /**
  * Clase Persona
  * Contiene informacion de cada persona
- * @author ManuelToledo
+ * @author Grupo4
  * @version 1.0
  */
 @Entity
