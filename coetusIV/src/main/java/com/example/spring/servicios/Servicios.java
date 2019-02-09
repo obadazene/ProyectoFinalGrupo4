@@ -15,47 +15,37 @@ import com.example.spring.model.Persona;
 @Service
 @Transactional
 public class Servicios implements IServicios {
-	
-	
-    @Autowired
-    private IRepositorio userRepository;
-    
-    @Override
-	public List<Persona> list() {
-    	return userRepository.findAll();
-	}
 
-    @Override
-    public Persona getPersona(int id) { // Método que llama al Get, se utiliza en editPersona
-        return userRepository.findOne(id);
-    }
-
-    // Metodo que llama addPersona con el objeto userRepository
-    @Override
-    public void addPersona(Persona persona) {
-        userRepository.save(persona);
-    }
-
-    // Metodo que llama a delContacto con el objeto userRepository
-    @Override
-    public void delPersona(int id) {
-        userRepository.delete(id);
-    }
-    
-    @Override
-    public void salvarPersona(Persona persona) {// Método que llama a salvarPersona
-           userRepository.save(persona);
-    }
+	@Autowired
+	private IRepositorio userRepository;
 
 	@Override
-	public Persona findPersona(int id) {
-		
-		return userRepository.findOne(id);
-		
+	public List<Persona> list() {
+		return userRepository.findAll();
 	}
 
+	// Método que llama al findPersona, se utiliza en editPersona
+	@Override
+	public Persona findPersona(int id) {
+		return userRepository.findOne(id);
+	}
 
+	// Metodo que llama addPersona con el objeto userRepository
+	@Override
+	public void addPersona(Persona persona) {
+		userRepository.save(persona);
+	}
 
-	
+	// Metodo que llama a delContacto con el objeto userRepository
+	@Override
+	public void delPersona(int id) {
+		userRepository.delete(id);
+	}
+
+	// Método que llama a salvarPersona
+	@Override
+	public void salvarPersona(Persona persona) {
+		userRepository.save(persona);
+	}
 
 }
