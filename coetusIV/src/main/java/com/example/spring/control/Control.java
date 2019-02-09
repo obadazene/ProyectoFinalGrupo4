@@ -15,72 +15,68 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.IServicios;
 
-
-
+/**
+ * 
+ * @author Grupo4
+ *
+ */
 @Controller
 public class Control {
-	
+
 	@Autowired
 	private IServicios Iservicios;
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
-	
-	
-	/*@GetMapping("/")
-	public ModelAndView  listarPersona() throws Exception {
-		System.out.println("--------dentro listarContactos");
-		logger.info("-- Listado Contactos");
-		List<Persona> listaContactos = servicios.list();
-		
-		//logger.info("--"+listaContactos.toString());
-		
-		
-		//System.out.println(listaContactos.toString());
-		
-		
-		ModelAndView model = new ModelAndView("ListadoContactos");
-		model.addObject("ListadoContactos", servicios.list);
-		return model;
-	}	*/
-	
+
+	/*
+	 * @GetMapping("/") public ModelAndView listarPersona() throws Exception {
+	 * System.out.println("--------dentro listarContactos");
+	 * logger.info("-- Listado Contactos"); List<Persona> listaContactos =
+	 * servicios.list();
+	 * 
+	 * //logger.info("--"+listaContactos.toString());
+	 * 
+	 * 
+	 * //System.out.println(listaContactos.toString());
+	 * 
+	 * 
+	 * ModelAndView model = new ModelAndView("ListadoContactos");
+	 * model.addObject("ListadoContactos", servicios.list); return model; }
+	 */
+
 	@RequestMapping("/")
 	public String listaPersonas(ModelMap model) throws Exception {
-		logger.info("-- en Listado");		
+		logger.info("-- en Listado");
 		model.addAttribute("contactList", Iservicios.list());
-		return "ContcatList";
-	}	
-	
-	
-	@GetMapping( "/addPersona")// Incluido el botón altaContacto dentro del paréntesis 
+		return "contactList";
+	}
+
+	@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
 	public String addPersona(Model model) {
 		logger.info("-- en Add");
-		
-		//ModelAndView model = new ModelAndView("AltaEmpleado");
-		//model.addObject("contacto", add Contacto());
-		//return model;
-	
+
+		// ModelAndView model = new ModelAndView("AltaEmpleado");
+		// model.addObject("contacto", add Contacto());
+		// return model;
+
 		model.addAttribute("persona", new Persona());
 		return "addContacto";
-	
+
 	}
-	
-	
+
 	@GetMapping("/editPersona")
 	public String editPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en EDIT");
-		model.addAttribute("persona", Iservicios.getPersona(id));
-		return "addContacto";		
+		model.addAttribute("persona", Iservicios.findPersona(id));
+		return "addContacto";
 	}
-	
-	
+
 	@GetMapping("/delPersona")
 	public ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
 		Iservicios.delPersona(id);
-		return new ModelAndView("redirect:/");		
+		return new ModelAndView("redirect:/");
 	}
-	
-	
-	
+
 	@PostMapping("/salvarPersona")
 	public ModelAndView salvarPersona(@ModelAttribute Persona persona) {
 		logger.info("-- en SAVE");
@@ -89,14 +85,11 @@ public class Control {
 	}
 
 	@GetMapping("/busca")
-	public String findPersona(ModelMap model ,@RequestParam("id") int id) {
+	public String findPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en busacar");
-		model.addAttribute("persona", Iservicios.getPersona(id));
-		return "ContcatList";
-		
-		
-		
+		model.addAttribute("persona", Iservicios.findPersona(id));
+		return "ContactList";
+
 	}
-	
-	
+
 }
