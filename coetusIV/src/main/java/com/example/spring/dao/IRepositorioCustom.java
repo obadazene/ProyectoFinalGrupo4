@@ -13,7 +13,7 @@ public interface IRepositorioCustom {
 
 	// Metodo que lista personas
 
-	public List<Persona> findPersona();
+	public List<Persona> getPersona();
 
 
 
