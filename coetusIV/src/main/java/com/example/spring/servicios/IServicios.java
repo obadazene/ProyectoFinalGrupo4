@@ -12,12 +12,12 @@ public interface IServicios {
 
 	public List<Persona> list();
 
-	public Persona findPersona(int id);
+	//public Persona findPersona(int id);
 
-	public void addPersona(Persona persona);
+	//public void addPersona(Persona persona);
 
-	public void delPersona(int id);
+	//public void delPersona(int id);
 
-	public void salvarPersona(Persona persona);
+	//public void salvarPersona(Persona persona);
 
 }
