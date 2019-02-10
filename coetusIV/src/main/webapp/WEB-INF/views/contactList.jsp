@@ -37,6 +37,8 @@
 					<td>${user.nombre}</td>
 					<td>${user.apellido1}</td>
 					<td>${user.apellido2}</td>
+					<td>${user.dni}</td>
+					<td>${user.fechanacimiento}</td>
 					<td><a href="edit?id=${user.id}">Modificar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.id}">Eliminar</a>
 					</td>
