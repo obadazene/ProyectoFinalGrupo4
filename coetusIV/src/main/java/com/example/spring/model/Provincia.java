@@ -19,11 +19,6 @@ public class Provincia {
 	private int idprovincia;
 	private String provincia;
 
-	// objeto persona
-	@OneToMany(mappedBy = "provincia")
-	private List<Persona> personas;
-	
-	// objeto direccion
 	@OneToMany(mappedBy = "provincia")
 	private List<Direccion> direcciones;
 
@@ -46,19 +41,19 @@ public class Provincia {
 		this.provincia = provincia;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Provincia [idprovincia=");
-		builder.append(idprovincia);
-		builder.append(", provincia=");
-		builder.append(provincia);
-		builder.append(", personas=");
-		builder.append(personas);
-		builder.append(", direcciones=");
-		builder.append(direcciones);
-		builder.append("]");
-		return builder.toString();
+	public List<Direccion> getDirecciones() {
+		return direcciones;
 	}
 
+	public void setDirecciones(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
+
+	@Override
+	public String toString() {
+		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direcciones=" + direcciones
+				+ "]";
+	}
+
+	
 }

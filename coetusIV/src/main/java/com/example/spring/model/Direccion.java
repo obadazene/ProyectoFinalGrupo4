@@ -25,12 +25,11 @@ public class Direccion {
 
 	// objeto Persona
 	@OneToOne
-	@JoinColumn(name = "idpersona", referencedColumnName = "id")
+	@JoinColumn(name = "idPersona")
 	private Persona persona;
 
-	// objeto Provincia
 	@ManyToOne
-	@JoinColumn(name = "idprovincia")
+	@JoinColumn(name = "idProvincia")
 	private Provincia provincia;
 
 	@Id

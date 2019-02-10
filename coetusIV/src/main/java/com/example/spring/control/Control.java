@@ -50,7 +50,7 @@ public class Control {
 		return "contactList";
 	}
 
-	@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
+	/*@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
 	public String addPersona(Model model) {
 		logger.info("-- en Add");
 
@@ -90,6 +90,6 @@ public class Control {
 		model.addAttribute("persona", Iservicios.findPersona(id));
 		return "ContactList";
 
-	}
+	}*/
 
 }

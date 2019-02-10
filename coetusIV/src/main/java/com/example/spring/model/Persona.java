@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -47,27 +46,16 @@ public class Persona {
 	 */
 	private Date fechaNacimiento; // también podria haber importado en vez de java.utils sql
 
-	// object de Direccion
-	@OneToOne(mappedBy = "idpersona")
-	@JoinColumn(name = "idpersona")
+	@OneToOne(mappedBy = "direccion")
 	private Direccion direccion;
-
-	// lista de telefonos
+	
 	@OneToMany
 	@JoinColumn(name = "idpersona")
-	private List<Telefono> teleLista;
-
-	// object provincia
-	@ManyToOne
-	@JoinColumn(name = "idpersona")
-	private Provincia provincia;
-
-	public List<Telefono> getTeleLista() {
-		return teleLista;
-	}
+	private List<Telefono> telefones;
+	
 
 	public void setTeleLista(List<Telefono> teleLista) {
-		this.teleLista = teleLista;
+		this.telefones = teleLista;
 	}
 
 	public Direccion getDireccion() {
@@ -182,29 +170,37 @@ public class Persona {
 		this.fechaNacimiento = fechanacimiento;
 	}
 
+	public int getIdPersona() {
+		return idPersona;
+	}
+
+	public void setIdPersona(int idPersona) {
+		this.idPersona = idPersona;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public List<Telefono> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<Telefono> telefones) {
+		this.telefones = telefones;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Persona [idPersona=");
-		builder.append(idPersona);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append(", apellido1=");
-		builder.append(apellido1);
-		builder.append(", apellido2=");
-		builder.append(apellido2);
-		builder.append(", dni=");
-		builder.append(dni);
-		builder.append(", fechaNacimiento=");
-		builder.append(fechaNacimiento);
-		builder.append(", direccion=");
-		builder.append(direccion);
-		builder.append(", teleLista=");
-		builder.append(teleLista);
-		builder.append(", provincia=");
-		builder.append(provincia);
-		builder.append("]");
-		return builder.toString();
+		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
+				+ apellido2 + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion
+				+ ", telefones=" + telefones + "]";
 	}
+
+	
 
 }
