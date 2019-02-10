@@ -25,7 +25,7 @@ public class Servicios implements IServicios {
 	}
 
 	// Método que llama al findPersona, se utiliza en editPersona
-	/*@Override
+	@Override
 	public Persona findPersona(int id) {
 		return userRepository.findOne(id);
 	}
@@ -46,6 +46,6 @@ public class Servicios implements IServicios {
 	@Override
 	public void salvarPersona(Persona persona) {
 		userRepository.save(persona);
-	}*/
+	}
 
 }
