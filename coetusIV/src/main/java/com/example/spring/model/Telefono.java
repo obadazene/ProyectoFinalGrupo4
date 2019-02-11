@@ -57,4 +57,17 @@ public class Telefono {
 		this.idPersona = idpersona;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Telefono [idTelefono=");
+		builder.append(idTelefono);
+		builder.append(", telefono=");
+		builder.append(telefono);
+		builder.append(", idPersona=");
+		builder.append(idPersona);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

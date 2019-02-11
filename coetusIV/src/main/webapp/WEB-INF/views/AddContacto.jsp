@@ -23,7 +23,7 @@
 	<div align="center">
 		<h1>FORMULARIO DE USUARIOS Repo (add/edit)</h1>
 		<table>
-			<form:form action="save" method="post" modelAttribute="user">
+			<form:form action="save" method="post" modelAttribute="persona">
 				<form:hidden path="id" />
 				<tr>
 					<td>Nombre:</td>
