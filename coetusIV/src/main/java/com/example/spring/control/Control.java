@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.IServicios;
@@ -71,7 +72,7 @@ public class Control {
 	}
 
 	@GetMapping("/delPersona")
-	public ModelAndView delPersona(@RequestParam("id") int id) {
+	public @ResponseBody ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
 		Iservicios.delPersona(id);
 		return new ModelAndView("redirect:/");
