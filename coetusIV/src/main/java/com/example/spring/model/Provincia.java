@@ -8,34 +8,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 /**
  * 
  * @author Grupo4
  *
  */
-@Entity
-//@Table(name = "provincia")
-public class Provincia implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name="idprovincia")
-	private int idprovincia;
-	
-	private String provincia;
-	
-	@OneToMany(mappedBy = "provincia")
-	private List<Direccion> direcciones;
 
-	
-	// @Column Obada me ha dicho que lo quite, pero lo comento
+/**
+ * The persistent class for the provincia database table.
+ * 
+ */
+@Entity
+@NamedQuery(name = "Provincia.findAll", query = "SELECT p FROM Provincia p")
+public class Provincia implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	private int idprovincia;
+
+	private String provincia;
+
+	// bi-directional many-to-one association to Direccion
+	@OneToMany(mappedBy = "provincia")
+	private List<Direccion> direccions;
+
+	public Provincia() {
+	}
+
 	public int getIdprovincia() {
-		return idprovincia;
+		return this.idprovincia;
 	}
 
 	public void setIdprovincia(int idprovincia) {
@@ -43,26 +49,39 @@ public class Provincia implements Serializable {
 	}
 
 	public String getProvincia() {
-		return provincia;
+		return this.provincia;
 	}
 
 	public void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
 
-	public List<Direccion> getDirecciones() {
-		return direcciones;
+	public List<Direccion> getDireccions() {
+		return this.direccions;
 	}
 
-	public void setDirecciones(List<Direccion> direcciones) {
-		this.direcciones = direcciones;
+	public void setDireccions(List<Direccion> direccions) {
+		this.direccions = direccions;
+	}
+
+	public Direccion addDireccion(Direccion direccion) {
+		getDireccions().add(direccion);
+		direccion.setProvincia(this);
+
+		return direccion;
+	}
+
+	public Direccion removeDireccion(Direccion direccion) {
+		getDireccions().remove(direccion);
+		direccion.setProvincia(null);
+
+		return direccion;
 	}
 
 	@Override
 	public String toString() {
-		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direcciones=" + direcciones
+		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direccions=" + direccions
 				+ "]";
 	}
 
-	
 }

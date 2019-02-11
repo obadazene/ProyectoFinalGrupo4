@@ -9,78 +9,64 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
- * Clase Telefono Contiene información del telefono de la persona
  * 
- * @author ManuelToledo @version1.0
+ * @author Grupo4
+ *
+ */
+
+/**
+ * The persistent class for the telefono database table.
+ * 
  */
 @Entity
+@NamedQuery(name = "Telefono.findAll", query = "SELECT t FROM Telefono t")
 public class Telefono implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idtelefono")
-	private int idTelefono;
-	
-	@ManyToOne
-	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
-	private Persona personaTel;
-	
+	private int idtelefono;
+
 	private String telefono;
 
-	public Telefono() {
-		
-	}
+	// bi-directional many-to-one association to Persona
+	@ManyToOne
+	@JoinColumn(name = "idpersona")
+	private Persona persona;
 
-	public Telefono(String tel) {
-		super();
-		this.telefono = tel;
-	}
-	public Telefono(int idTelefono, String telefono) {
-		super();
-		this.idTelefono=idTelefono;
-		this.telefono=telefono;
+	public Telefono() {
 	}
 
 	public int getIdtelefono() {
-		return idTelefono;
+		return this.idtelefono;
 	}
 
 	public void setIdtelefono(int idtelefono) {
-		this.idTelefono = idtelefono;
+		this.idtelefono = idtelefono;
 	}
 
 	public String getTelefono() {
-		return telefono;
+		return this.telefono;
 	}
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-	public Persona getIdpersona() {
-		return personaTel;
+	public Persona getPersona() {
+		return this.persona;
 	}
 
-	public void setIdpersona(Persona personaTel) {
-		this.personaTel = personaTel;
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Telefono [idTelefono=");
-		builder.append(idTelefono);
-		builder.append(", telefono=");
-		builder.append(telefono);
-		builder.append(", idPersona=");
-		builder.append(personaTel);
-		builder.append("]");
-		return builder.toString();
+		return "Telefono [idtelefono=" + idtelefono + ", telefono=" + telefono + ", persona=" + persona + "]";
 	}
 
 }
