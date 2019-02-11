@@ -8,77 +8,61 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
- * Clase Persona Contiene informacion de cada persona
  * 
  * @author Grupo4
- * @version 1.0
+ *
+ */
+
+/**
+ * The persistent class for the persona database table.
+ * 
  */
 @Entity
-
+@NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
 public class Persona implements Serializable {
-
 	private static final long serialVersionUID = 1L;
-	/**
-	 * El id de la persona, que es la PrimaryKey en la tabla
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idpersona")
-	private int idPersona;
-	/**
-	 * Nombre de la Persona
-	 */
-	@Column(name = "nombre")
-	private String nombre;
-	/**
-	 * Primer apellido de la persona
-	 */
-	private String apellido1;
-	/**
-	 * Segundo apellido de la persona
-	 */
-	private String apellido2;
-	/**
-	 * DNI propiedad de la persona
-	 */
-	private String dni;
-	/**
-	 * Fecha de nacimiento de la persona
-	 */
-	private Date fechanacimiento; // también podria haber importado en vez de java.utils sql
 
-	@OneToMany(mappedBy = "personaDir")
+	@Id
+	private int idpersona;
+
+	private String apellido1;
+
+	private String apellido2;
+
+	private String dni;
+
+	@Temporal(TemporalType.DATE)
+	private Date fechanacimiento;
+
+	private String nombre;
+
+	// bi-directional many-to-one association to Direccion
+	@OneToMany(mappedBy = "persona")
 	private List<Direccion> direcciones;
 
-	@OneToMany(mappedBy = "personaTel")
+	// bi-directional many-to-one association to Telefono
+	@OneToMany(mappedBy = "persona")
 	private List<Telefono> telefonos;
 
-	public int getIdPersona() {
-		return idPersona;
+	public Persona() {
 	}
 
-	public void setIdPersona(int idPersona) {
-		this.idPersona = idPersona;
+	public int getIdpersona() {
+		return this.idpersona;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * 
-	 * @param nombre setea el nombre de la persona
-	 */
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setIdpersona(int idpersona) {
+		this.idpersona = idpersona;
 	}
 
 	public String getApellido1() {
-		return apellido1;
+		return this.apellido1;
 	}
 
 	public void setApellido1(String apellido1) {
@@ -86,7 +70,7 @@ public class Persona implements Serializable {
 	}
 
 	public String getApellido2() {
-		return apellido2;
+		return this.apellido2;
 	}
 
 	public void setApellido2(String apellido2) {
@@ -94,41 +78,77 @@ public class Persona implements Serializable {
 	}
 
 	public String getDni() {
-		return dni;
+		return this.dni;
 	}
 
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechanacimiento;
+	public Date getFechanacimiento() {
+		return this.fechanacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechanacimiento = fechaNacimiento;
+	public void setFechanacimiento(Date fechanacimiento) {
+		this.fechanacimiento = fechanacimiento;
 	}
 
-	public List<Direccion> getDireccion() {
-		return direcciones;
+	public String getNombre() {
+		return this.nombre;
 	}
 
-	public void setDireccion(List<Direccion> direcciones) {
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public List<Direccion> getDireccions() {
+		return this.direcciones;
+	}
+
+	public void setDireccions(List<Direccion> direcciones) {
 		this.direcciones = direcciones;
 	}
 
+	public Direccion addDireccion(Direccion direccion) {
+		getDireccions().add(direccion);
+		direccion.setPersona(this);
+
+		return direccion;
+	}
+
+	public Direccion removeDireccion(Direccion direccion) {
+		getDireccions().remove(direccion);
+		direccion.setPersona(null);
+
+		return direccion;
+	}
+
 	public List<Telefono> getTelefonos() {
-		return telefonos;
+		return this.telefonos;
 	}
 
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
 	}
 
+	public Telefono addTelefono(Telefono telefono) {
+		getTelefonos().add(telefono);
+		telefono.setPersona(this);
+
+		return telefono;
+	}
+
+	public Telefono removeTelefono(Telefono telefono) {
+		getTelefonos().remove(telefono);
+		telefono.setPersona(null);
+
+		return telefono;
+	}
+
 	@Override
 	public String toString() {
-		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
-				+ apellido2 + ", dni=" + dni + ", fechaNacimiento=" + fechanacimiento + ", direccion=" + direcciones
+		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
+				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direcciones=" + direcciones
 				+ ", telefonos=" + telefonos + "]";
 	}
 
