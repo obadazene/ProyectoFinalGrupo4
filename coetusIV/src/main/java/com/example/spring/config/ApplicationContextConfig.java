@@ -11,10 +11,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 @Configuration
-@ComponentScan("com.example.spring")
-@EnableWebMvc
-@EnableTransactionManagement
+//@ComponentScan("com.example.spring")
+//@EnableWebMvc
+//@EnableTransactionManagement
 public class ApplicationContextConfig extends WebMvcConfigurerAdapter  {
+	/*
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -28,6 +29,6 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter  {
 	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");  
 	}
      
-   
+   */
 
 }

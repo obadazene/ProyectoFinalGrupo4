@@ -1,4 +1,4 @@
-package com.example.demo.pruebas;
+package com.example.spring;
 
 import static org.junit.Assert.assertEquals;
 

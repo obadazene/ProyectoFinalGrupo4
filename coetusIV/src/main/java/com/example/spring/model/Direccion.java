@@ -29,8 +29,6 @@ public class Direccion implements Serializable {
 	private String direccion;
 	private String codpostal;
 	private String localidad;
-	private int idprovincia;
-	private int idpersona;
 
 	// objeto Persona
 	@ManyToOne
@@ -73,22 +71,6 @@ public class Direccion implements Serializable {
 		this.localidad = localidad;
 	}
 
-	public int getIdprovincia() {
-		return idprovincia;
-	}
-
-	public void setIdprovincia(int idprovincia) {
-		this.idprovincia = idprovincia;
-	}
-
-	public int getIdpersona() {
-		return idpersona;
-	}
-
-	public void setIdpersona(int idpersona) {
-		this.idpersona = idpersona;
-	}
-
 	public Persona getPersona() {
 		return personaDir;
 	}
@@ -108,7 +90,7 @@ public class Direccion implements Serializable {
 	@Override
 	public String toString() {
 		return "Direccion [iddireccion=" + iddireccion + ", direccion=" + direccion + ", codpostal=" + codpostal
-				+ ", localidad=" + localidad + ", idprovincia=" + idprovincia + ", idpersona=" + idpersona
+				+ ", localidad=" + localidad 
 				+ ", persona=" + personaDir + ", provincia=" + provincia + "]";
 	}
 
