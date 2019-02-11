@@ -19,7 +19,7 @@ public class Provincia {
 	private int idprovincia;
 	private String provincia;
 
-	@OneToMany(mappedBy = "provincia")
+	@OneToMany(mappedBy = "direccion")
 	private List<Direccion> direcciones;
 
 	@Id

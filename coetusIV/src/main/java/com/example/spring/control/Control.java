@@ -43,14 +43,14 @@ public class Control {
 	 * model.addObject("ListadoContactos", servicios.list); return model; }
 	 */
 
-	@RequestMapping("/")
+	@RequestMapping("/tt")
 	public String listaPersonas(ModelMap model) throws Exception {
 		logger.info("-- en Listado");
-		model.addAttribute("contactList", Iservicios.list());
+		model.addAttribute("contactList", Iservicios.list().toString());
 		return "contactList";
 	}
 
-	@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
+	/*@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
 	public String addPersona(Model model) {
 		logger.info("-- en Add");
 
@@ -90,6 +90,6 @@ public class Control {
 		model.addAttribute("persona", Iservicios.findPersona(id));
 		return "ContactList";
 
-	}
+	}*/
 
 }
