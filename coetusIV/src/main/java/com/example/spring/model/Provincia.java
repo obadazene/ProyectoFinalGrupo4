@@ -3,6 +3,7 @@ package com.example.spring.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,13 +19,12 @@ import javax.persistence.Table;
 @Entity
 //@Table(name = "provincia")
 public class Provincia implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column (name="idprovincia")
 	private int idprovincia;
 	
 	private String provincia;
