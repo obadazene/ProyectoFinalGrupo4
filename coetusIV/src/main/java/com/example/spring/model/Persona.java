@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 
 public class Persona implements Serializable {
 
-		private static final long serialVersionUID= 1L;
+	private static final long serialVersionUID = 1L;
 	/**
 	 * El id de la persona, que es la PrimaryKey en la tabla
 	 */
@@ -54,11 +54,11 @@ public class Persona implements Serializable {
 	 */
 	private Date fechanacimiento; // también podria haber importado en vez de java.utils sql
 
-	@OneToOne(mappedBy = "direccion")
+	@OneToMany(mappedBy = "direccion")
 	private Direccion direccion;
-	
-	@OneToMany(mappedBy = "telefonos")
-	private List<Telefono> telefonos;
+
+	@OneToMany(mappedBy = "telefono")
+	private List<Telefono> telefono;
 
 	public int getIdPersona() {
 		return idPersona;
@@ -76,8 +76,6 @@ public class Persona implements Serializable {
 	 * 
 	 * @param nombre setea el nombre de la persona
 	 */
-
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -124,20 +122,18 @@ public class Persona implements Serializable {
 	}
 
 	public List<Telefono> getTelefonos() {
-		return telefonos;
+		return telefono;
 	}
 
 	public void setTelefonos(List<Telefono> telefonos) {
-		this.telefonos = telefonos;
+		this.telefono = telefonos;
 	}
 
 	@Override
 	public String toString() {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
 				+ apellido2 + ", dni=" + dni + ", fechaNacimiento=" + fechanacimiento + ", direccion=" + direccion
-				+ ", telefonos=" + telefonos + "]";
+				+ ", telefonos=" + telefono + "]";
 	}
-	
-	
 
 }
