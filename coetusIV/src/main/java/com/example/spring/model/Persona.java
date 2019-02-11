@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
  * @version 1.0
  */
 @Entity
-@Table(name = "persona") // nombre transitorio para la tabla
+
 public class Persona implements Serializable {
 
 		private static final long serialVersionUID= 1L;
@@ -71,6 +71,13 @@ public class Persona implements Serializable {
 	public String getNombre() {
 		return nombre;
 	}
+
+	/**
+	 * 
+	 * @param nombre setea el nombre de la persona
+	 */
+
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
