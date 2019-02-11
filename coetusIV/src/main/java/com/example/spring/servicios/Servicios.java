@@ -41,6 +41,12 @@ public class Servicios implements IServicios {
 	public void delPersona(int id) {
 		userRepository.delete(id);
 	}
+	
+	@Override
+	public void delPersona(Persona persona) {
+		userRepository.delete(persona.getIdPersona());
+		
+	}
 
 	// Método que llama a salvarPersona
 	@Override
@@ -48,4 +54,19 @@ public class Servicios implements IServicios {
 		userRepository.save(persona);
 	}
 
+	public boolean exists(Persona per) {
+		List<Persona> list = list();
+		for(Persona person:list) {
+			if(person.getNombre().equals(per.getNombre())&
+					person.getApellido1().equals(per.getApellido1())&
+					person.getApellido2().equals(per.getApellido2())) {
+				System.out.println("--------------------- ContactoServiceImpl > exists: true "+person);
+				return true;
+			}
+		}
+		System.out.println("----------------------- ContactoServiceImpl > exists: false "+list);
+		return false;
+	}
+
 }
+

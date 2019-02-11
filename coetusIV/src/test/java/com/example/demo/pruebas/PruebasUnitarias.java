@@ -1,10 +1,15 @@
 package com.example.demo.pruebas;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import static org.assertj.core.api.Assertions.assertThat;
+
+import com.example.spring.model.Persona;
+import com.example.spring.servicios.IServicios;
 
 /**
  * 
@@ -15,10 +20,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class PruebasUnitarias {
 		
+		@Autowired
+		private IServicios Iservicios;
+	
 	    @Test
-	    public void contextLoads() throws Exception {
+	    public void contextLoads()  {
 	    	//Deberia fallar aposta
-	    	assertThat(false).isTrue();
+	    	Persona persona = new Persona();
+	    	persona.setNombre("Obada");
+	    	persona.setApellido1("Antonio");
+	    	persona.setApellido2("Manuel");
+	    	persona.setDni("159753852L");
+	    	
+	    	Iservicios.addPersona(persona);
+	    	
+	    	int cuentaInicial = Iservicios.list().size();
+	    	
+	    	Iservicios.delPersona(persona);
+	    
+	    	int cuentaFinal = Iservicios.list().size();
+	    	
+	    	assertEquals(cuentaInicial-1,cuentaFinal);
 	    }
 	
 	
