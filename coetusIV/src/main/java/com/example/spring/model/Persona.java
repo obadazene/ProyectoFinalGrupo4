@@ -8,12 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * Clase Persona Contiene informacion de cada persona
@@ -30,7 +25,7 @@ public class Persona implements Serializable {
 	 * El id de la persona, que es la PrimaryKey en la tabla
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idpersona")
 	private int idPersona;
 	/**
@@ -55,8 +50,7 @@ public class Persona implements Serializable {
 	 */
 	private Date fechanacimiento; // también podria haber importado en vez de java.utils sql
 
-	@OneToMany
-	(mappedBy = "personaDir")
+	@OneToMany(mappedBy = "personaDir")
 	private List<Direccion> direcciones;
 
 	@OneToMany(mappedBy = "personaTel")
@@ -114,8 +108,6 @@ public class Persona implements Serializable {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechanacimiento = fechaNacimiento;
 	}
-
-
 
 	public List<Direccion> getDireccion() {
 		return direcciones;
