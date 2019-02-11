@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Clase Persona Contiene informacion de cada persona
@@ -44,13 +46,12 @@ public class Persona {
 	/**
 	 * Fecha de nacimiento de la persona
 	 */
-	private Date fechaNacimiento; // también podria haber importado en vez de java.utils sql
+		private Date fechaNacimiento; // también podria haber importado en vez de java.utils sql
 
 	@OneToOne(mappedBy = "direccion")
 	private Direccion direccion;
 	
-	@OneToMany
-	@JoinColumn(name = "idpersona")
+	@OneToMany(mappedBy = "telefones")
 	private List<Telefono> telefones;
 	
 
