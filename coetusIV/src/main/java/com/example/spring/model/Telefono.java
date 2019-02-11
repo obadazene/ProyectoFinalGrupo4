@@ -16,15 +16,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "telefono")
 public class Telefono {
-	private int idTelefono;
-	private String telefono;
-	private int idPersona;
-    
-	
-  
+
 	@Id
 	@GeneratedValue
 	@Column(name = "idtelefono")
+	private int idTelefono;
+	@Column(name = "telefono")
+	private String telefono;
+	@Column(name = "idpersona")
+	private int idPersona;
+
 	public int getIdtelefono() {
 		return idTelefono;
 	}
@@ -33,7 +34,6 @@ public class Telefono {
 		this.idTelefono = idtelefono;
 	}
 
-	@Column(name = "telefono")
 	public String getTelefono() {
 		return telefono;
 	}
@@ -42,7 +42,6 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 
-	@Column(name = "idpersona")
 	public int getIdpersona() {
 		return idPersona;
 	}
