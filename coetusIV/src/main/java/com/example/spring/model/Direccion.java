@@ -16,6 +16,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "direccion")
 public class Direccion {
+	@Id
+	@GeneratedValue
 	private int iddireccion;
 	private String direccion;
 	private String codpostal;
@@ -24,17 +26,14 @@ public class Direccion {
 	private int idpersona;
 
 	// objeto Persona
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "idPersona")
 	private Persona persona;
-
 	@ManyToOne
 	@JoinColumn(name = "idProvincia")
 	private Provincia provincia;
 
-	@Id
-	@GeneratedValue
-	// @Column Obada me ha dicho que lo quite, pero lo comento
+	
 	public int getIddireccion() {
 		return iddireccion;
 	}
@@ -83,27 +82,29 @@ public class Direccion {
 		this.idpersona = idpersona;
 	}
 
+	public Persona getPersona() {
+		return persona;
+	}
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Direccion [iddireccion=");
-		builder.append(iddireccion);
-		builder.append(", direccion=");
-		builder.append(direccion);
-		builder.append(", codpostal=");
-		builder.append(codpostal);
-		builder.append(", localidad=");
-		builder.append(localidad);
-		builder.append(", idprovincia=");
-		builder.append(idprovincia);
-		builder.append(", idpersona=");
-		builder.append(idpersona);
-		builder.append(", persona=");
-		builder.append(persona);
-		builder.append(", provincia=");
-		builder.append(provincia);
-		builder.append("]");
-		return builder.toString();
+		return "Direccion [iddireccion=" + iddireccion + ", direccion=" + direccion + ", codpostal=" + codpostal
+				+ ", localidad=" + localidad + ", idprovincia=" + idprovincia + ", idpersona=" + idpersona
+				+ ", persona=" + persona + ", provincia=" + provincia + "]";
 	}
+
+	
 
 }
