@@ -1,8 +1,11 @@
 package com.example.spring.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,17 +19,25 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "telefono")
-public class Telefono {
-
+public class Telefono implements Serializable {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idtelefono")
 	private int idTelefono;
+	
 	@Column(name = "telefono")
 	private String telefono;
+	
 	@ManyToOne
-	@JoinColumn(name = "idpersona")
-	private int idPersona;
+	@JoinColumn(name = "idpersona", referencedColumnName="idpersona")
+	private Persona personaTel;
 
 	public int getIdtelefono() {
 		return idTelefono;
@@ -44,12 +55,12 @@ public class Telefono {
 		this.telefono = telefono;
 	}
 
-	public int getIdpersona() {
-		return idPersona;
+	public Persona getIdpersona() {
+		return personaTel;
 	}
 
-	public void setIdpersona(int idpersona) {
-		this.idPersona = idpersona;
+	public void setIdpersona(Persona personaTel) {
+		this.personaTel = personaTel;
 	}
 
 	@Override
@@ -60,7 +71,7 @@ public class Telefono {
 		builder.append(", telefono=");
 		builder.append(telefono);
 		builder.append(", idPersona=");
-		builder.append(idPersona);
+		builder.append(personaTel);
 		builder.append("]");
 		return builder.toString();
 	}

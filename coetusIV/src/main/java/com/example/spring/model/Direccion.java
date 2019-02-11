@@ -2,12 +2,15 @@ package com.example.spring.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import java.io.Serializable;
+import java.util.List;
 /**
  * 
  * @author Grupo4
@@ -15,10 +18,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "direccion")
-public class Direccion {
+public class Direccion implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int iddireccion;
+	
 	private String direccion;
 	private String codpostal;
 	private String localidad;
@@ -27,12 +36,13 @@ public class Direccion {
 
 	// objeto Persona
 	@ManyToOne
-	@JoinColumn(name = "idPersona")
-	private Persona persona;
+	@JoinColumn(name = "idpersona", referencedColumnName="idpersona")
+	private Persona personaDir;
+	
 	@ManyToOne
-	@JoinColumn(name = "idProvincia")
+	@JoinColumn(name = "idprovincia",referencedColumnName="idprovincia")
 	private Provincia provincia;
-
+	
 	
 	public int getIddireccion() {
 		return iddireccion;
@@ -82,12 +92,15 @@ public class Direccion {
 		this.idpersona = idpersona;
 	}
 
+	
+
+
 	public Persona getPersona() {
-		return persona;
+		return personaDir;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	public void setPersona(Persona personaDir) {
+		this.personaDir = personaDir;
 	}
 
 	public Provincia getProvincia() {
@@ -102,7 +115,7 @@ public class Direccion {
 	public String toString() {
 		return "Direccion [iddireccion=" + iddireccion + ", direccion=" + direccion + ", codpostal=" + codpostal
 				+ ", localidad=" + localidad + ", idprovincia=" + idprovincia + ", idpersona=" + idpersona
-				+ ", persona=" + persona + ", provincia=" + provincia + "]";
+				+ ", persona=" + personaDir + ", provincia=" + provincia + "]";
 	}
 
 	

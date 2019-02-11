@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -29,7 +30,7 @@ public class Persona implements Serializable {
 	 * El id de la persona, que es la PrimaryKey en la tabla
 	 */
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idpersona")
 	private int idPersona;
 	/**
@@ -54,11 +55,12 @@ public class Persona implements Serializable {
 	 */
 	private Date fechanacimiento; // también podria haber importado en vez de java.utils sql
 
-	@OneToMany(mappedBy = "direccion")
-	private Direccion direccion;
+	@OneToMany
+	(mappedBy = "personaDir")
+	private List<Direccion> direcciones;
 
-	@OneToMany(mappedBy = "telefono")
-	private List<Telefono> telefono;
+	@OneToMany(mappedBy = "personaTel")
+	private List<Telefono> telefonos;
 
 	public int getIdPersona() {
 		return idPersona;
@@ -113,27 +115,29 @@ public class Persona implements Serializable {
 		this.fechanacimiento = fechaNacimiento;
 	}
 
-	public Direccion getDireccion() {
-		return direccion;
+
+
+	public List<Direccion> getDireccion() {
+		return direcciones;
 	}
 
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
+	public void setDireccion(List<Direccion> direcciones) {
+		this.direcciones = direcciones;
 	}
 
 	public List<Telefono> getTelefonos() {
-		return telefono;
+		return telefonos;
 	}
 
 	public void setTelefonos(List<Telefono> telefonos) {
-		this.telefono = telefonos;
+		this.telefonos = telefonos;
 	}
 
 	@Override
 	public String toString() {
 		return "Persona [idPersona=" + idPersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
-				+ apellido2 + ", dni=" + dni + ", fechaNacimiento=" + fechanacimiento + ", direccion=" + direccion
-				+ ", telefonos=" + telefono + "]";
+				+ apellido2 + ", dni=" + dni + ", fechaNacimiento=" + fechanacimiento + ", direccion=" + direcciones
+				+ ", telefonos=" + telefonos + "]";
 	}
 
 }
