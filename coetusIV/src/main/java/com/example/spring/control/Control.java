@@ -46,7 +46,7 @@ public class Control {
 	@RequestMapping("/tt")
 	public String listaPersonas(ModelMap model) throws Exception {
 		logger.info("-- en Listado");
-		model.addAttribute("contactList", Iservicios.list());
+		model.addAttribute("contactList", Iservicios.list().toString());
 		return "contactList";
 	}
 
