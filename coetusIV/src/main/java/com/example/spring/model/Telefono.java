@@ -14,30 +14,37 @@ import javax.persistence.Table;
 /**
  * Clase Telefono Contiene información del telefono de la persona
  * 
- * @author ManuelToledo 
- * @version1.0
+ * @author ManuelToledo @version1.0
  */
 @Entity
-@Table(name = "telefono")
 public class Telefono implements Serializable {
-	
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idtelefono")
 	private int idTelefono;
 	
-	@Column(name = "telefono")
-	private String telefono;
-	
 	@ManyToOne
-	@JoinColumn(name = "idpersona", referencedColumnName="idpersona")
+	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
 	private Persona personaTel;
+	
+	private String telefono;
+
+	public Telefono() {
+		
+	}
+
+	public Telefono(String tel) {
+		super();
+		this.telefono = tel;
+	}
+	public Telefono(int idTelefono, String telefono) {
+		super();
+		this.idTelefono=idTelefono;
+		this.telefono=telefono;
+	}
 
 	public int getIdtelefono() {
 		return idTelefono;
