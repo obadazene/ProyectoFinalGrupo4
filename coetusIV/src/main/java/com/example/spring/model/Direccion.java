@@ -6,11 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import java.io.Serializable;
-import java.util.List;
+
 /**
  * 
  * @author Grupo4
@@ -18,16 +16,16 @@ import java.util.List;
  */
 @Entity
 @Table(name = "direccion")
-public class Direccion implements Serializable{
+public class Direccion implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int iddireccion;
-	
+
 	private String direccion;
 	private String codpostal;
 	private String localidad;
@@ -36,14 +34,13 @@ public class Direccion implements Serializable{
 
 	// objeto Persona
 	@ManyToOne
-	@JoinColumn(name = "idpersona", referencedColumnName="idpersona")
+	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
 	private Persona personaDir;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "idprovincia",referencedColumnName="idprovincia")
+	@JoinColumn(name = "idprovincia", referencedColumnName = "idprovincia")
 	private Provincia provincia;
-	
-	
+
 	public int getIddireccion() {
 		return iddireccion;
 	}
@@ -92,9 +89,6 @@ public class Direccion implements Serializable{
 		this.idpersona = idpersona;
 	}
 
-	
-
-
 	public Persona getPersona() {
 		return personaDir;
 	}
@@ -117,7 +111,5 @@ public class Direccion implements Serializable{
 				+ ", localidad=" + localidad + ", idprovincia=" + idprovincia + ", idpersona=" + idpersona
 				+ ", persona=" + personaDir + ", provincia=" + provincia + "]";
 	}
-
-	
 
 }
