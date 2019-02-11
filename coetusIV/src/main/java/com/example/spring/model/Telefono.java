@@ -18,19 +18,6 @@ import javax.persistence.Table;
 @Table(name = "telefono")
 public class Telefono {
 
-	/**
-	 * El id del telefono de persona, es la PrimaryKey, no puede ser null y se autoincrementa
-	 */
-	private int idTelefono;
-	/**
-	 * El string con el numero de telefono
-	 */
-	private String telefono;
-	/**
-	 * El int del nmero
-	 */
-	private int idPersona;
-
 	@Id
 	@GeneratedValue
 	@Column(name = "idtelefono")
