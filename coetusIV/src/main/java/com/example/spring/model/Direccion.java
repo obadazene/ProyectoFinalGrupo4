@@ -6,7 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
 import java.io.Serializable;
 
 /**
@@ -14,57 +16,64 @@ import java.io.Serializable;
  * @author Grupo4
  *
  */
+
+/**
+ * The persistent class for the direccion database table.
+ * 
+ */
 @Entity
-@Table(name = "direccion")
+@NamedQuery(name="Direccion.findAll", query="SELECT d FROM Direccion d")
 public class Direccion implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int iddireccion;
 
-	private String direccion;
 	private String codpostal;
+
+	private String direccion;
+
 	private String localidad;
 
-	// objeto Persona
+	//bi-directional many-to-one association to Persona
 	@ManyToOne
-	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
-	private Persona personaDir;
+	@JoinColumn(name="idpersona")
+	private Persona persona;
 
+	//bi-directional many-to-one association to Provincia
 	@ManyToOne
-	@JoinColumn(name = "idprovincia", referencedColumnName = "idprovincia")
+	@JoinColumn(name="idprovincia")
 	private Provincia provincia;
 
+	public Direccion() {
+	}
+
 	public int getIddireccion() {
-		return iddireccion;
+		return this.iddireccion;
 	}
 
 	public void setIddireccion(int iddireccion) {
 		this.iddireccion = iddireccion;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
 	public String getCodpostal() {
-		return codpostal;
+		return this.codpostal;
 	}
 
 	public void setCodpostal(String codpostal) {
 		this.codpostal = codpostal;
 	}
 
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public String getLocalidad() {
-		return localidad;
+		return this.localidad;
 	}
 
 	public void setLocalidad(String localidad) {
@@ -72,15 +81,15 @@ public class Direccion implements Serializable {
 	}
 
 	public Persona getPersona() {
-		return personaDir;
+		return this.persona;
 	}
 
-	public void setPersona(Persona personaDir) {
-		this.personaDir = personaDir;
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
 
 	public Provincia getProvincia() {
-		return provincia;
+		return this.provincia;
 	}
 
 	public void setProvincia(Provincia provincia) {
@@ -93,5 +102,7 @@ public class Direccion implements Serializable {
 				+ ", localidad=" + localidad 
 				+ ", persona=" + personaDir + ", provincia=" + provincia + "]";
 	}
+
+	
 
 }
