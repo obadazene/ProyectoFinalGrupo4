@@ -8,27 +8,27 @@
 <head>
 <meta charset="UTF-8">
 
-        <spring:url value="resources/css/bootstrap.css" var="bootstrap"/>
-        <link href="${bootstrap}" rel="stylesheet" />
-        <spring:url value="resources/css/custom.css" var="custom"/>
-        <link href="${custom}" rel="stylesheet" />  
+<spring:url value="resources/css/bootstrap.css" var="bootstrap" />
+<link href="${bootstrap}" rel="stylesheet" />
+<spring:url value="resources/css/custom.css" var="custom" />
+<link href="${custom}" rel="stylesheet" />
 
 <title>LISTADO DE USUARIOS</title>
 </head>
 <body>
 	<div align="center">
-		<h1>LISTADO DE USUARIOS Repo</h1>
+		<h1>LISTADO DE USUARIOS</h1>
 		<h3>
 			<a href="new">Clic para crear un NUEVO USUARIO</a>
 		</h3>
 
 		<table border="1">
-		<tr>
-			<th>Nº</th>
-			<th>Nombre</th>
-			<th>Teléfono</th>
-			<th>Provincia</th>
-			<th>Dirección</th>
+			<tr>
+				<th>Nº</th>
+				<th>Nombre</th>
+				<th>Teléfono</th>
+				<th>Provincia</th>
+				<th>Dirección</th>
 			</tr>
 
 			<c:forEach var="user" items="${contactList}" varStatus="status">
@@ -43,7 +43,7 @@
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.idpersona}">Eliminar</a>
 					</td>
 				</tr>
-			</c:forEach> 
+			</c:forEach>
 		</table>
 	</div>
 </body>
