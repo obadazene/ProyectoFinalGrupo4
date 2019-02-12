@@ -43,7 +43,6 @@ public class Servicios implements IServicios {
 	}
 
 	// Metodo que llama a delContacto con el objeto userRepository
-	@Override
 	public void delPersona(int id) {
 		userRepository.delete(id);
 	}

@@ -72,14 +72,14 @@ public class Control {
 	@GetMapping("/delPersona")
 	public @ResponseBody ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
-		IServicios.delPersona(id);
+		iServicios.delPersona(id);
 		return new ModelAndView("redirect:/");
 	}
 
 	@PostMapping("/save")
 	public ModelAndView salvarPersona(@ModelAttribute Persona persona) {
 		logger.info("-- en SAVE");
-		IServicios.addPersona(persona);
+		iServicios.salvarPersona(persona);
 		return new ModelAndView("redirect:/lista");
 	}
 
