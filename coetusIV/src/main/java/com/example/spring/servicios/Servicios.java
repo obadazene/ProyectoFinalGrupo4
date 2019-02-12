@@ -73,6 +73,25 @@ public class Servicios implements IServicios {
 		System.out.println("----------------------- ContactoServiceImpl > exists: false "+list);
 		return false;
 	}
+	
+	/**
+	 * Este metodo devuelve el ID de la persona si existe, o bien -1 si no existe
+	 * @param per
+	 * @return
+	 */
+	public int existsAndGetId(Persona per) {
+		List<Persona> list = list();
+		for(Persona person:list) {
+			if(person.getNombre().equals(per.getNombre())&
+					person.getApellido1().equals(per.getApellido1())&
+					person.getApellido2().equals(per.getApellido2())) {
+				System.out.println("-- ContactoServiceImpl(existsAndGetId) > exists: true "+person);
+				return person.getIdpersona();
+			}
+		}
+		System.out.println("-- ContactoServiceImpl(existsAndGetId) > exists: false "+list);
+		return -1;
+	}	
 
 }
 
