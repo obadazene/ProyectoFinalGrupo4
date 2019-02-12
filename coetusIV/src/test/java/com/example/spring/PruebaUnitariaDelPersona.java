@@ -18,40 +18,49 @@ public class PruebaUnitariaDelPersona {
 
 	@Autowired
 	private IServicios serve;
-	
+
 	@Test
 	public void pruebaUnitariaDelPersona() throws Exception {
-		
-		Persona persona = new Persona();
-    	persona.setNombre("Obada");
-    	persona.setApellido1("Antonio");
-    	persona.setApellido2("Manuel");
-    	persona.setDni("159753852L");
-    	
-    	serve.addPersona(persona);
-    	
-    	int cuentaInicial = serve.list().size();
 
-    	System.out.println(serve.exists(persona));
-    	
-    	serve.delPersona(persona);
-    	
-    	System.out.println(serve.list().toString());
-    
-    	int cuentaFinal = serve.list().size();
-		
-		try {
-   	
-	    	assertEquals(cuentaInicial-1,cuentaFinal);
-	    	System.out.println("Ha funcionado");
-	    	
-	      } catch(EmptyResultDataAccessException dataAccessException) {
-	    	  System.out.println("No ha funcionado");
-	      }
+		Persona persona = new Persona();
+		persona.setNombre("Obada");
+		persona.setApellido1("Antonio");
+		persona.setApellido2("Manuel");
+		persona.setDni("159753852L");
+		System.out.println("-1---" + persona);
+
+		serve.addPersona(persona);
+
+		System.out.println("-2---" + persona);
+		int cuentaInicial = serve.list().size();
 		
 		
+		//Compruebo si se ha añadido. veo si existe
+		int id = serve.existsAndGetId(persona);
+		if (id != -1) {
+			// la personita existe
+			System.out.println("-*** id: "+id);
+			serve.delPersona(id);
+			System.out.println(persona);
+			int cuentaFinal = serve.list().size();
+			try {
+
+				assertEquals(cuentaInicial - 1, cuentaFinal);
+				System.out.println("Ha funcionado");
+
+			} catch (EmptyResultDataAccessException dataAccessException) {
+				System.out.println("No ha funcionado");
+			}
+
+		} else {
+			// La persona no existe
+			// No se ha añadido
+			System.out.println("No ha funcionado. No se ha añadido");
+			assertEquals(true, false);
+
+		}
 		
+
 	}
 
 }
-
