@@ -40,7 +40,7 @@
 					<td>${user.dni}</td>
 					<td>${user.fechanacimiento}</td>
 					<td><a href="edit?id=${user.idpersona}">Modificar</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.idpersona}">Eliminar</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delPersona">Eliminar</a>
 					</td>
 				</tr>
 			</c:forEach>

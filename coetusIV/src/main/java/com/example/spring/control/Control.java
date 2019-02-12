@@ -58,6 +58,7 @@ public class Control {
 	public String addPersona(ModelMap model) {
 		logger.info("-- en Add");
 		model.addAttribute("persona", new Persona());
+		logger.info("----saliendo de add");
 		return "addPersona";
 
 	}
@@ -66,21 +67,24 @@ public class Control {
 	public String editPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en EDIT");
 		model.addAttribute("persona", iServicios.findPersona(id));
-		return "addContacto";
+		return "addPersona";
 	}
 
 	@GetMapping("/delPersona")
 	public @ResponseBody ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
 		iServicios.delPersona(id);
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/lista");
 	}
 
 	@PostMapping("/save")
 	public ModelAndView salvarPersona(@ModelAttribute Persona persona) {
-		logger.info("-- en SAVE");
+		logger.info("-- Control. en SAVE. Entrando");
+		logger.info("----"+persona.toString());
 		iServicios.salvarPersona(persona);
+		logger.info("-- en SAVE. âso medio");
 		return new ModelAndView("redirect:/lista");
+		
 	}
 
 	@GetMapping("/busca")

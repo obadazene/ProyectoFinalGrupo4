@@ -31,33 +31,29 @@
 				<tr>
 					<td>Nombre:</td>
 
-					<td><input path="nombre" /></td>
+					<td><form:input path="nombre" /></td>
 				</tr>
 				<tr>
 					<td>Primer apellido:</td>
 
-					<td><input path="apellido1" /></td>
+					<td><form:input path="apellido1" /></td>
 				</tr>
 				<tr>
 					<td>Segundo apellido:</td>
 
-					<td><input path="apellido2" /></td>
+					<td><form:input path="apellido2" /></td>
 				</tr>
 
 				<tr>
 					<td>DNI</td>
 
-					<td><input path="dni" /></td>
+					<td><form:input path="dni" /></td>
 				</tr>
-				<tr>
-					<td>Fecha de nacimiento:</td>
 
-					<td><input path="fechanacimiento" /></td>
-				</tr>
 
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
-						value="Guardar Registro"><a href="contactList.jsp"></a></td>
+						value="Guardar Registro"></td>
 				</tr>
 			</table>
 		</form:form>

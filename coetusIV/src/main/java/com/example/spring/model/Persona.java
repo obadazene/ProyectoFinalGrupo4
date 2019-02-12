@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,12 +25,15 @@ import javax.persistence.TemporalType;
  * 
  */
 @Entity
-@NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
+//@NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
+@Table(name="persona")
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private int idpersona;
+
+	private String nombre;
 
 	private String apellido1;
 
@@ -40,8 +44,6 @@ public class Persona implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechanacimiento;
 
-	private String nombre;
-
 	// bi-directional many-to-one association to Direccion
 	@OneToMany(mappedBy = "persona")
 	private List<Direccion> direcciones;
@@ -49,9 +51,6 @@ public class Persona implements Serializable {
 	// bi-directional many-to-one association to Telefono
 	@OneToMany(mappedBy = "persona")
 	private List<Telefono> telefonos;
-
-	public Persona() {
-	}
 
 	public int getIdpersona() {
 		return this.idpersona;
