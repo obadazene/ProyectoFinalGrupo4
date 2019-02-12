@@ -14,11 +14,17 @@ public interface IServicios {
 
 	public Persona findPersona(int id);
 
-	public void addPersona(Persona persona);
+	public static void addPersona(Persona persona) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public void delPersona(Persona persona);
 	
-	public void delPersona(int id);
+	public static void delPersona(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public void salvarPersona(Persona persona);
 	

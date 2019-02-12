@@ -1,4 +1,5 @@
 package com.example.spring.control;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.IServicios;
-
-
-
-
 
 /**
  * 
@@ -51,22 +48,17 @@ public class Control {
 	@RequestMapping("/lista")
 	public String listaPersonas(ModelMap model) throws Exception {
 		logger.info("------ CONTROL: en listaPersonas");
-		//model.addAttribute("contactList", iServicios.list().toString());
+		// model.addAttribute("contactList", iServicios.list().toString());
 		model.addAttribute("contactList", iServicios.list());
-		logger.info("------ CONTROL: ANTES DE SALIR");		
+		logger.info("------ CONTROL: ANTES DE SALIR");
 		return "contactList";
 	}
 
-	@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
-	public String addPersona(Model model) {
+	@GetMapping("/new") // Incluido el botón altaContacto dentro del paréntesis
+	public String addPersona(ModelMap model) {
 		logger.info("-- en Add");
-
-		// ModelAndView model = new ModelAndView("AltaEmpleado");
-		// model.addObject("contacto", add Contacto());
-		// return model;
-
 		model.addAttribute("persona", new Persona());
-		return "addContacto";
+		return "addPersona";
 
 	}
 
@@ -80,15 +72,15 @@ public class Control {
 	@GetMapping("/delPersona")
 	public @ResponseBody ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
-		iServicios.delPersona(id);
+		IServicios.delPersona(id);
 		return new ModelAndView("redirect:/");
 	}
 
-	@PostMapping("/salvarPersona")
+	@PostMapping("/save")
 	public ModelAndView salvarPersona(@ModelAttribute Persona persona) {
 		logger.info("-- en SAVE");
-		iServicios.addPersona(persona);
-		return new ModelAndView("redirect:/");
+		IServicios.addPersona(persona);
+		return new ModelAndView("redirect:/lista");
 	}
 
 	@GetMapping("/busca")

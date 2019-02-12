@@ -42,7 +42,6 @@ public class Persona implements Serializable {
 
 	private String nombre;
 
-	
 	// bi-directional many-to-one association to Direccion
 	@OneToMany(mappedBy = "persona")
 	private List<Direccion> direcciones;
@@ -104,11 +103,10 @@ public class Persona implements Serializable {
 
 	@Override
 	public String toString() {
-		return "---------Persona [idpersona=" + idpersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
-				+ apellido2 + ", dni=" + dni + ", fechanacimiento=" + fechanacimiento + "]";
+		return "---------Persona [idpersona=" + idpersona + ", nombre=" + nombre + ", apellido1=" + apellido1
+				+ ", apellido2=" + apellido2 + ", dni=" + dni + ", fechanacimiento=" + fechanacimiento + "]";
 	}
 
-	
 	public List<Direccion> getDireccions() {
 		return this.direcciones;
 	}
@@ -116,7 +114,6 @@ public class Persona implements Serializable {
 	public void setDireccions(List<Direccion> direcciones) {
 		this.direcciones = direcciones;
 	}
-	
 
 	public List<Telefono> getTelefonos() {
 		return this.telefonos;
@@ -124,45 +121,35 @@ public class Persona implements Serializable {
 
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
-	}	
-	
+	}
+
 	/*
+	 * 
+	 * public Direccion addDireccion(Direccion direccion) {
+	 * getDireccions().add(direccion); direccion.setPersona(this);
+	 * 
+	 * return direccion; }
+	 * 
+	 * public Direccion removeDireccion(Direccion direccion) {
+	 * getDireccions().remove(direccion); direccion.setPersona(null);
+	 * 
+	 * return direccion; }
+	 * 
+	 * 
+	 * public Telefono addTelefono(Telefono telefono) {
+	 * getTelefonos().add(telefono); telefono.setPersona(this);
+	 * 
+	 * return telefono; }
+	 * 
+	 * public Telefono removeTelefono(Telefono telefono) {
+	 * getTelefonos().remove(telefono); telefono.setPersona(null);
+	 * 
+	 * return telefono; }
+	 * 
+	 * @Override public String toString() { return "Persona [idpersona=" + idpersona
+	 * + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni=" + dni +
+	 * ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre +
+	 * ", direcciones=" + direcciones + ", telefonos=" + telefonos + "]"; }
+	 */
 
-	public Direccion addDireccion(Direccion direccion) {
-		getDireccions().add(direccion);
-		direccion.setPersona(this);
-
-		return direccion;
-	}
-
-	public Direccion removeDireccion(Direccion direccion) {
-		getDireccions().remove(direccion);
-		direccion.setPersona(null);
-
-		return direccion;
-	}
-
-
-	public Telefono addTelefono(Telefono telefono) {
-		getTelefonos().add(telefono);
-		telefono.setPersona(this);
-
-		return telefono;
-	}
-
-	public Telefono removeTelefono(Telefono telefono) {
-		getTelefonos().remove(telefono);
-		telefono.setPersona(null);
-
-		return telefono;
-	}
-
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direcciones=" + direcciones
-				+ ", telefonos=" + telefonos + "]";
-	}
-*/
-	
 }

@@ -38,7 +38,6 @@ public class Servicios implements IServicios {
 	}
 
 	// Metodo que llama addPersona con el objeto userRepository
-	@Override
 	public void addPersona(Persona persona) {
 		userRepository.save(persona);
 	}
