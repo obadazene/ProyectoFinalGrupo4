@@ -96,12 +96,13 @@ public class Direccion implements Serializable {
 		this.provincia = provincia;
 	}
 
+	/*
 	@Override
 	public String toString() {
 		return "Direccion [iddireccion=" + iddireccion + ", direccion=" + direccion + ", codpostal=" + codpostal
 				+ ", localidad=" + localidad 
 				+ ", persona="  + ", provincia=" + provincia + "]";
-	}
+	}*/
 
 	
 

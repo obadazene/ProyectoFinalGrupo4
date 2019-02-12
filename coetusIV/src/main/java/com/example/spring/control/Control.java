@@ -3,9 +3,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.example.spring.model.Persona;
 import com.example.spring.servicios.IServicios;
 
 
@@ -21,7 +29,7 @@ import com.example.spring.servicios.IServicios;
 public class Control {
 
 	@Autowired
-	private IServicios Iservicios;
+	private IServicios iServicios;
 	private static final Logger logger = LoggerFactory.getLogger(Control.class);
 
 	/*
@@ -42,12 +50,14 @@ public class Control {
 
 	@RequestMapping("/lista")
 	public String listaPersonas(ModelMap model) throws Exception {
-		logger.info("-- en Listado");
-		model.addAttribute("contactList", Iservicios.list().toString());
+		logger.info("------ CONTROL: en listaPersonas");
+		//model.addAttribute("contactList", iServicios.list().toString());
+		model.addAttribute("contactList", iServicios.list());
+		logger.info("------ CONTROL: ANTES DE SALIR");		
 		return "contactList";
 	}
 
-	/*@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
+	@GetMapping("/addPersona") // Incluido el botón altaContacto dentro del paréntesis
 	public String addPersona(Model model) {
 		logger.info("-- en Add");
 
@@ -63,30 +73,30 @@ public class Control {
 	@GetMapping("/editPersona")
 	public String editPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en EDIT");
-		model.addAttribute("persona", Iservicios.findPersona(id));
+		model.addAttribute("persona", iServicios.findPersona(id));
 		return "addContacto";
 	}
 
 	@GetMapping("/delPersona")
 	public @ResponseBody ModelAndView delPersona(@RequestParam("id") int id) {
 		logger.info("-- en DELETE");
-		Iservicios.delPersona(id);
+		iServicios.delPersona(id);
 		return new ModelAndView("redirect:/");
 	}
 
 	@PostMapping("/salvarPersona")
 	public ModelAndView salvarPersona(@ModelAttribute Persona persona) {
 		logger.info("-- en SAVE");
-		Iservicios.addPersona(persona);
+		iServicios.addPersona(persona);
 		return new ModelAndView("redirect:/");
 	}
 
 	@GetMapping("/busca")
 	public String findPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("-- en busacar");
-		model.addAttribute("persona", Iservicios.findPersona(id));
+		model.addAttribute("persona", iServicios.findPersona(id));
 		return "ContactList";
 
-	}*/
+	}
 
 }

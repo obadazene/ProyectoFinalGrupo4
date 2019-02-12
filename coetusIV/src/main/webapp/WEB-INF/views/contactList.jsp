@@ -39,11 +39,11 @@
 					<td>${user.apellido2}</td>
 					<td>${user.dni}</td>
 					<td>${user.fechanacimiento}</td>
-					<td><a href="edit?id=${user.id}">Modificar</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.id}">Eliminar</a>
+					<td><a href="edit?id=${user.idpersona}">Modificar</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delete?id=${user.idpersona}">Eliminar</a>
 					</td>
 				</tr>
-			</c:forEach>
+			</c:forEach> 
 		</table>
 	</div>
 </body>

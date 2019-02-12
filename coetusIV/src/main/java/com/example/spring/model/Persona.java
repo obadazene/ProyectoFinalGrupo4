@@ -42,6 +42,7 @@ public class Persona implements Serializable {
 
 	private String nombre;
 
+	
 	// bi-directional many-to-one association to Direccion
 	@OneToMany(mappedBy = "persona")
 	private List<Direccion> direcciones;
@@ -101,6 +102,13 @@ public class Persona implements Serializable {
 		this.nombre = nombre;
 	}
 
+	@Override
+	public String toString() {
+		return "---------Persona [idpersona=" + idpersona + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2="
+				+ apellido2 + ", dni=" + dni + ", fechanacimiento=" + fechanacimiento + "]";
+	}
+
+	
 	public List<Direccion> getDireccions() {
 		return this.direcciones;
 	}
@@ -108,6 +116,17 @@ public class Persona implements Serializable {
 	public void setDireccions(List<Direccion> direcciones) {
 		this.direcciones = direcciones;
 	}
+	
+
+	public List<Telefono> getTelefonos() {
+		return this.telefonos;
+	}
+
+	public void setTelefonos(List<Telefono> telefonos) {
+		this.telefonos = telefonos;
+	}	
+	
+	/*
 
 	public Direccion addDireccion(Direccion direccion) {
 		getDireccions().add(direccion);
@@ -123,13 +142,6 @@ public class Persona implements Serializable {
 		return direccion;
 	}
 
-	public List<Telefono> getTelefonos() {
-		return this.telefonos;
-	}
-
-	public void setTelefonos(List<Telefono> telefonos) {
-		this.telefonos = telefonos;
-	}
 
 	public Telefono addTelefono(Telefono telefono) {
 		getTelefonos().add(telefono);
@@ -151,5 +163,6 @@ public class Persona implements Serializable {
 				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direcciones=" + direcciones
 				+ ", telefonos=" + telefonos + "]";
 	}
-
+*/
+	
 }

@@ -63,10 +63,10 @@ public class Telefono implements Serializable {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
-
+/*
 	@Override
 	public String toString() {
 		return "Telefono [idtelefono=" + idtelefono + ", telefono=" + telefono + ", persona=" + persona + "]";
 	}
-
+*/
 }
