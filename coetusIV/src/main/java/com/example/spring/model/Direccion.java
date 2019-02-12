@@ -100,7 +100,7 @@ public class Direccion implements Serializable {
 	public String toString() {
 		return "Direccion [iddireccion=" + iddireccion + ", direccion=" + direccion + ", codpostal=" + codpostal
 				+ ", localidad=" + localidad 
-				+ ", persona=" + personaDir + ", provincia=" + provincia + "]";
+				+ ", persona="  + ", provincia=" + provincia + "]";
 	}
 
 	

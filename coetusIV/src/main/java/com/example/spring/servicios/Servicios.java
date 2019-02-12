@@ -44,7 +44,7 @@ public class Servicios implements IServicios {
 	
 	@Override
 	public void delPersona(Persona persona) {
-		userRepository.delete(persona.getIdPersona());
+		userRepository.delete(persona.getIdpersona());
 		
 	}
 
