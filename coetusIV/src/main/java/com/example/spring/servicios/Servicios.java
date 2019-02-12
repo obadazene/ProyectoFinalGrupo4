@@ -49,7 +49,7 @@ public class Servicios implements IServicios {
 	
 	@Override
 	public void delPersona(Persona persona) {
-		userRepository.delete(persona.getIdpersona());
+		userRepository.delete(persona);
 		
 	}
 

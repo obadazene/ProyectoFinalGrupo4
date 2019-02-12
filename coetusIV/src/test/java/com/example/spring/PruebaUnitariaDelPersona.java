@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.spring.model.Persona;
@@ -13,13 +14,13 @@ import com.example.spring.servicios.IServicios;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CoetusIvApplicationTests {
+public class PruebaUnitariaDelPersona {
 
 	@Autowired
 	private IServicios serve;
 	
 	@Test
-	public void pruebaUnitariaDelPersona() {
+	public void pruebaUnitariaDelPersona() throws Exception {
 		
 		Persona persona = new Persona();
     	persona.setNombre("Obada");
@@ -30,31 +31,25 @@ public class CoetusIvApplicationTests {
     	serve.addPersona(persona);
     	
     	int cuentaInicial = serve.list().size();
+
+    	System.out.println(serve.exists(persona));
     	
     	serve.delPersona(persona);
+    	
+    	System.out.println(serve.list().toString());
     
     	int cuentaFinal = serve.list().size();
-    	
-    	assertEquals(cuentaInicial-1,cuentaFinal);
 		
-	}
-	
-	@Test
-	public void pruebaUnitariaAddPersona() {
+		try {
+   	
+	    	assertEquals(cuentaInicial-1,cuentaFinal);
+	    	System.out.println("Ha funcionado");
+	    	
+	      } catch(EmptyResultDataAccessException dataAccessException) {
+	    	  System.out.println("No ha funcionado");
+	      }
 		
-		Persona persona = new Persona();
-    	persona.setNombre("Obada");
-    	persona.setApellido1("Antonio");
-    	persona.setApellido2("Manuel");
-    	persona.setDni("159753852L");
-    	
-    	int cantidadInicial = serve.list().size();
-    	
-    	serve.addPersona(persona);
-    	
-    	int cantidadFinal = serve.list().size();
-    	
-    	assertEquals(cantidadInicial+1, cantidadFinal);
+		
 		
 	}
 
