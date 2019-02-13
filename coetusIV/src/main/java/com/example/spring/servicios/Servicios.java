@@ -60,36 +60,37 @@ public class Servicios implements IServicios {
 		userRepository.save(persona);
 	}
 
-	public boolean exists(Persona per) {
+	public boolean exists(Persona persona) {
 		List<Persona> list = list();
 		for(Persona person:list) {
-			if(person.getNombre().equals(per.getNombre())&
-					person.getApellido1().equals(per.getApellido1())&
-					person.getApellido2().equals(per.getApellido2())) {
-				System.out.println("--------------------- ContactoServiceImpl > exists: true "+person);
+			if(person.getNombre().equals(persona.getNombre())&
+					person.getApellido1().equals(persona.getApellido1())&
+					person.getApellido2().equals(persona.getApellido2())) {
+				System.out.println("--------------------- ContactoServiceImpl -> exists: true "+person);
 				return true;
 			}
 		}
-		System.out.println("----------------------- ContactoServiceImpl > exists: false "+list);
+		System.out.println("----------------------- ContactoServiceImpl -> exists: false "+list);
 		return false;
 	}
 	
 	/**
 	 * Este metodo devuelve el ID de la persona si existe, o bien -1 si no existe
-	 * @param per
+	 * @param persona
 	 * @return
 	 */
-	public int existsAndGetId(Persona per) {
-		List<Persona> list = list();
-		for(Persona person:list) {
-			if(person.getNombre().equals(per.getNombre())&
-					person.getApellido1().equals(per.getApellido1())&
-					person.getApellido2().equals(per.getApellido2())) {
-				System.out.println("-- ContactoServiceImpl(existsAndGetId) > exists: true "+person);
-				return person.getIdpersona();
+	public int existsAndGetId(Persona persona) {
+		List<Persona> lista = list();
+		for(Persona p:lista) {
+			if(p.getNombre().equals(persona.getNombre())&
+					p.getApellido1().equals(persona.getApellido1())&
+					p.getApellido2().equals(persona.getApellido2())&
+					p.getDni().equals(persona.getDni())) {
+				System.out.println("-- ContactoServiceImpl(existsAndGetId) -> exists: true "+p);
+				return p.getIdpersona();
 			}
 		}
-		System.out.println("-- ContactoServiceImpl(existsAndGetId) > exists: false "+list);
+		System.out.println("-- ContactoServiceImpl(existsAndGetId) -> exists: false "+lista);
 		return -1;
 	}	
 
