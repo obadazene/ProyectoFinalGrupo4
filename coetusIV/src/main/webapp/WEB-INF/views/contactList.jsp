@@ -22,7 +22,7 @@
 			<a href="new">Clic para crear un NUEVO USUARIO</a>
 		</h3>
 
-		<table border="1">
+		<table border="1" >
 			<tr>
 				<th>Nº</th>
 				<th>Nombre</th>
@@ -31,16 +31,16 @@
 				<th>Dirección</th>
 			</tr>
 
-			<c:forEach var="user" items="${contactList}" varStatus="status">
+			<c:forEach var="persona" items="${contactList}" varStatus="status">
 				<tr>
 					<td>${status.index + 1}</td>
-					<td>${user.nombre}</td>
-					<td>${user.apellido1}</td>
-					<td>${user.apellido2}</td>
-					<td>${user.dni}</td>
-					<td>${user.fechanacimiento}</td>
-					<td><a href="edit?id=${user.idpersona}">Modificar</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delPersona">Eliminar</a>
+					<td>${persona.nombre}</td>
+					<td>${persona.apellido1}</td>
+					<td>${persona.apellido2}</td>
+					<td>${persona.dni}</td>
+					<!-- <td>${persona.fechanacimiento}</td> -->
+					<td><a href="editPersona?id=${persona.idpersona}">Modificar</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delPersona?id=${persona.idpersona}">Eliminar</a>
 					</td>
 				</tr>
 			</c:forEach>
