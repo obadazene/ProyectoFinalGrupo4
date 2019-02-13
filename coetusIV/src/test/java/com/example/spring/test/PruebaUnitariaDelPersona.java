@@ -1,12 +1,13 @@
-package com.example.spring;
+package com.example.spring.test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.spring.model.Persona;
@@ -25,41 +26,43 @@ public class PruebaUnitariaDelPersona {
 	@Autowired
 	private IServicios serve;
 
+	private static final Logger logger = LoggerFactory.getLogger(PruebaUnitariaDelPersona.class);
+
 	@Test
 	public void pruebaUnitariaDelPersona() throws Exception {
 
+		// Creo una persona
 		Persona persona = new Persona();
-		persona.setNombre("Obada");
-		persona.setApellido1("Antonio");
-		persona.setApellido2("Manuel");
+		persona.setNombre("Hugo");
+		persona.setApellido1("Fernández");
+		persona.setApellido2("Gil");
 		persona.setDni("159753852L");
-		System.out.println("-1---" + persona);
 
+		// Añado la persona a la bbdd
 		serve.addPersona(persona);
 
-		System.out.println("-2---" + persona);
-		int cuentaInicial = serve.list().size();
+		int tamañoInicial = serve.list().size();
 
-		// Compruebo si se ha añadido. veo si existe
+		// Compruebo si se ha añadido la persona a la bbdd
 		int id = serve.existsAndGetId(persona);
 		if (id != -1) {
-			// la personita existe
-			System.out.println("*** id: " + id);
+			// La personita existe
+			logger.info("Id: " + id);
+			// Elimino la persona
 			serve.delPersona(id);
-			System.out.println(persona);
-			int cuentaFinal = serve.list().size();
+
+			int tamañoFinal = serve.list().size();
+
 			try {
-
-				assertEquals(cuentaInicial - 1, cuentaFinal);
-
+				assertEquals(tamañoInicial - 1, tamañoFinal);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 		} else {
 			// La persona no existe
-			// No se ha añadido
-			System.out.println("No ha funcionado. No se ha añadido");
+			// No se ha añadido a la bbdd
+			logger.info("La persona no existe en la base de datos");
 			assertEquals(true, false);
 
 		}

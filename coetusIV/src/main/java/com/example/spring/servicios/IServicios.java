@@ -24,6 +24,6 @@ public interface IServicios {
 
 	public boolean exists(Persona persona);
 
-	public int existsAndGetId(Persona per);
+	public int existsAndGetId(Persona persona);
 
 }
