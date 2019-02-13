@@ -12,6 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.spring.model.Persona;
 import com.example.spring.servicios.IServicios;
 
+/**
+ * 
+ * @author Grupo4
+ *
+ */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PruebaUnitariaDelPersona {
@@ -33,23 +39,21 @@ public class PruebaUnitariaDelPersona {
 
 		System.out.println("-2---" + persona);
 		int cuentaInicial = serve.list().size();
-		
-		
-		//Compruebo si se ha añadido. veo si existe
+
+		// Compruebo si se ha añadido. veo si existe
 		int id = serve.existsAndGetId(persona);
 		if (id != -1) {
 			// la personita existe
-			System.out.println("-*** id: "+id);
+			System.out.println("*** id: " + id);
 			serve.delPersona(id);
 			System.out.println(persona);
 			int cuentaFinal = serve.list().size();
 			try {
 
 				assertEquals(cuentaInicial - 1, cuentaFinal);
-				System.out.println("Ha funcionado");
 
-			} catch (EmptyResultDataAccessException dataAccessException) {
-				System.out.println("No ha funcionado");
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 
 		} else {
@@ -59,7 +63,6 @@ public class PruebaUnitariaDelPersona {
 			assertEquals(true, false);
 
 		}
-		
 
 	}
 
