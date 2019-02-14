@@ -63,6 +63,9 @@ public class Provincia implements Serializable {
 	public void setDireccions(List<Direccion> direccions) {
 		this.direccions = direccions;
 	}
+	
+	/*
+	 * comentado por ASR
 
 	public Direccion addDireccion(Direccion direccion) {
 		getDireccions().add(direccion);
@@ -77,6 +80,8 @@ public class Provincia implements Serializable {
 
 		return direccion;
 	}
+	
+	*/
 /*
 	@Override
 	public String toString() {

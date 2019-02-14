@@ -3,57 +3,46 @@ package com.example.spring.control;
  * @author Grupo4
  */
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.example.spring.model.Persona;
 import com.example.spring.servicios.IServicios;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping(//requerimos del apoyo de obada)
+@RequestMapping({ "/persona" })
 public class RestControl {
 
 	@Autowired
-	private final IServicios serve;
+	private IServicios serve;
 
-	public RestControl(IServicios serve) {
-		this.serve = serve;
+	@GetMapping
+	public List<Persona> list() {
+		return serve.list();
 	}
-	
-	
-	@SuppressWarnings("serial")
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	class PersonaNotFoundException extends RuntimeException {
 
-		public PersonaNotFoundException() {
-			super("Persona does not exist");
-		}
+	@PostMapping
+	public void addPersona(@RequestBody Persona persona) {
+		serve.addPersona(persona);
 	}
-	@SuppressWarnings("serial")
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	class DireccionNotFoundException extends RuntimeException {
 
-		public DireccionNotFoundException() {
-			super("Direccion does not exist");
-		}
+	@GetMapping(path = { "/{id}" })
+	public Persona findPersona(@PathVariable("id") int id) {
+		return serve.findPersona(id);
 	}
-	@SuppressWarnings("serial")
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	class ProvinciaNotFoundException extends RuntimeException {
 
-		public ProvinciaNotFoundException() {
-			super("Provincia does not exist");
-		}
+	@DeleteMapping(path = { "/{id}" })
+	public void delPersona(@PathVariable("id") int id) {
+		serve.delPersona(id);
 	}
-	@SuppressWarnings("serial")
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	class TelefonoNotFoundException extends RuntimeException {
 
-		public TelefonoNotFoundException() {
-			super("Telefono does not exist");
-		}
-	}
-	
-	
-	
 }

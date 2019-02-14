@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 /**
@@ -36,6 +38,8 @@ public class Direccion implements Serializable {
 	private String localidad;
 
 	//bi-directional many-to-one association to Persona
+	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="idpersona")
 	private Persona persona;
@@ -44,6 +48,7 @@ public class Direccion implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="idprovincia")
 	private Provincia provincia;
+	
 
 	public Direccion() {
 	}

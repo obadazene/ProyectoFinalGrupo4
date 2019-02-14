@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
@@ -44,14 +45,18 @@ public class Persona implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechanacimiento;
 
+	/*
+	 * Comentado por el profe
 	// bi-directional many-to-one association to Direccion
+	@JsonIgnore
 	@OneToMany(mappedBy = "persona")
 	private List<Direccion> direcciones;
 
 	// bi-directional many-to-one association to Telefono
+	@JsonIgnore
 	@OneToMany(mappedBy = "persona")
 	private List<Telefono> telefonos;
-
+*/
 	public int getIdpersona() {
 		return this.idpersona;
 	}
@@ -105,7 +110,7 @@ public class Persona implements Serializable {
 		return "---------Persona [idpersona=" + idpersona + ", nombre=" + nombre + ", apellido1=" + apellido1
 				+ ", apellido2=" + apellido2 + ", dni=" + dni + ", fechanacimiento=" + fechanacimiento + "]";
 	}
-
+/*
 	public List<Direccion> getDireccions() {
 		return this.direcciones;
 	}
@@ -121,7 +126,7 @@ public class Persona implements Serializable {
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
 	}
-
+*/
 	/*
 	 * 
 	 * public Direccion addDireccion(Direccion direccion) {

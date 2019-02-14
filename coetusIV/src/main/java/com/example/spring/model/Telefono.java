@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author Grupo4
@@ -33,6 +35,7 @@ public class Telefono implements Serializable {
 	private String telefono;
 
 	// bi-directional many-to-one association to Persona
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idpersona")
 	private Persona persona;
