@@ -1,0 +1,53 @@
+<div class = "col-md-6">
+        <h2 class="text-center">Add persona</h2>
+      <form>
+      
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input [(ngModel)]="Persona.nombre" placeholder="Nombre" name="nombre" class="form-control" id="nombre">
+        </div>
+      
+        <div class="form-group">
+          <label for="apellido1">Apellido1:</label>
+          <input [(ngModel)]="Persona.apellido1" placeholder="Apellido1" name="apellido1" class="form-control" id="apellido1">
+        </div>
+        <div class="form-group">
+          <label for="apellido2">Apellido2:</label>
+          <input [(ngModel)]="Persona.apellido2" placeholder="Apellido2" name="apellido2" class="form-control" id="apellido2">
+        </div>
+        <div class="form-group">
+          <label for="dni">dni:</label>
+          <input [(ngModel)]="Persona.dni" placeholder="Dni" name="dni" class="form-control" id="dni">
+        </div>
+        <div class="form-group">
+          <label for="fechanacimiento">Fechanacimiento:</label>
+          <input [(ngModel)]="Persona.fechanacimiento" placeholder="Fechanacimiento" name="fechanacimiento" class="form-control" id="fechanacimiento">
+        </div>
+      
+        <div class="form-group">
+          <label for="direccion">Direccion:</label>
+          <input [(ngModel)]="Persona.direccion" placeholder="Direccion" name="direccion" class="form-control" id="direccion">
+        </div>
+        <div class="form-group">
+          <label for="codpostal">Codpostal:</label>
+          <input [(ngModel)]="Persona.codpostal" placeholder="Codpostal" name="codpostal" class="form-control" id="codpostal">
+        </div>
+        <div class="form-group">
+          <label for="localidad">Localidad:</label>
+          <input [(ngModel)]="Persona.localidad" placeholder="Localidad" name="localidad" class="form-control" id="localidad">
+        </div>
+        <div class="form-group">
+          <label for="telefono">Telefono:</label>
+          <input [(ngModel)]="Persona.telefono" placeholder="Telefono" name="telefono" class="form-control" id="telefono">
+        </div>
+        <div class="form-group">
+          <label for="provincia">Provincia:</label>
+          <input [(ngModel)]="Persona.provincia" placeholder="Provincia" name="provincia" class="form-control" id="provincia">
+        </div>   
+        <button class="btn btn-success" (click)="createPersona()">Create</button>
+      </form>
+      </div>
+
+
+
+</div>
