@@ -13,5 +13,5 @@ import com.example.spring.model.Persona;
  */
 @Repository
 //Spring Data JpaRepository interface extends CrudRepository and provides finder methods out of the box
-public interface IRepositorio extends JpaRepository<Persona, Integer>{
+public interface IRepositorio extends JpaRepository<Persona, Integer> {
 }

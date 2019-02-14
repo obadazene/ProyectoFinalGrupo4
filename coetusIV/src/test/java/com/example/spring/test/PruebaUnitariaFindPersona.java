@@ -28,6 +28,14 @@ public class PruebaUnitariaFindPersona {
 
 	private static final Logger logger = LoggerFactory.getLogger(PruebaUnitariaFindPersona.class);
 
+	/**
+	 * Se crea una persona, se añade a la BBDD, se comprueba que existe en dicha
+	 * BBDD. Creamos otra persona auxiliar y volcamos en ella a la persona
+	 * encontrada por el id de la persona añadida en la BBDD. Prueba que ambos id
+	 * son iguales. Finalmente se elimina la persona.
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void pruebaUnitariaFindPersona() throws Exception {
 

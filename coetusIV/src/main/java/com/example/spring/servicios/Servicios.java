@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.spring.control.Control;
 import com.example.spring.dao.IRepositorio;
 import com.example.spring.model.Persona;
 
-/*
-* @Author Groupo4
-* Clase servicios de la aplicacion
-*/
+/**
+ * @author Groupo4 Clase servicios de la aplicacion
+ */
 
 @Service
 @Transactional
@@ -25,39 +23,74 @@ public class Servicios implements IServicios {
 	private IRepositorio userRepository;
 	private static final Logger logger = LoggerFactory.getLogger(Servicios.class);
 
+	/**
+	 * @return List<Persona>
+	 */
 	@Override
 	public List<Persona> list() {
 		logger.info("------ Servicios: en listaPersonas");
 		return userRepository.findAll();
 	}
 
-	// Método que llama al findPersona, se utiliza en editPersona
+	/**
+	 * Método que llama al findPersona, se utiliza en editPersona
+	 * 
+	 * @param id
+	 * @return Persona
+	 */
 	@Override
 	public Persona findPersona(int id) {
 		return userRepository.findOne(id);
 	}
 
-	// Metodo que llama addPersona con el objeto userRepository
+	/**
+	 * Metodo que llama addPersona con el objeto userRepository
+	 * 
+	 * @param persona
+	 */
 	public void addPersona(Persona persona) {
 		userRepository.save(persona);
 	}
 
-	// Metodo que llama a delContacto con el objeto userRepository
+	/**
+	 * Metodo que llama a delPersona con el objeto userRepository
+	 * 
+	 * @param id
+	 */
 	public void delPersona(int id) {
-		userRepository.delete(id);;
+		userRepository.delete(id);
+		;
 	}
 
+	/**
+	 * Método que llama a delPersona
+	 * 
+	 * @param persona
+	 * 
+	 */
 	@Override
 	public void delPersona(Persona persona) {
 		userRepository.delete(persona);
 
 	}
 
-	// Método que llama a salvarPersona
+	/**
+	 * Método que llama a salvarPersona
+	 * 
+	 * @param persona
+	 */
+
 	@Override
 	public void salvarPersona(Persona persona) {
 		userRepository.save(persona);
 	}
+
+	/**
+	 * Método que comprueba si la persona existe en la BBDD
+	 * 
+	 * @param persona
+	 * @return boolean
+	 */
 
 	public boolean exists(Persona persona) {
 		List<Persona> list = list();
@@ -73,10 +106,10 @@ public class Servicios implements IServicios {
 	}
 
 	/**
-	 * Este metodo devuelve el ID de la persona si existe, o bien -1 si no existe
+	 * Este metodo devuelve el id de la persona si existe, o bien -1 si no existe
 	 * 
 	 * @param persona
-	 * @return
+	 * @return int
 	 */
 	public int existsAndGetId(Persona persona) {
 		List<Persona> lista = list();

@@ -4,7 +4,7 @@ import java.util.List;
 import com.example.spring.model.Persona;
 
 /**
- * 
+ * Interfaz de los servicios
  * @author Grupo4
  *
  */

@@ -2,18 +2,11 @@ package com.example.spring.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
@@ -27,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 //@NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
-@Table(name="persona")
+@Table(name = "persona")
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -46,17 +39,18 @@ public class Persona implements Serializable {
 	private Date fechanacimiento;
 
 	/*
-	 * Comentado por el profe
-	// bi-directional many-to-one association to Direccion
-	@JsonIgnore
-	@OneToMany(mappedBy = "persona")
-	private List<Direccion> direcciones;
-
-	// bi-directional many-to-one association to Telefono
-	@JsonIgnore
-	@OneToMany(mappedBy = "persona")
-	private List<Telefono> telefonos;
-*/
+	 * Comentado por el profe // bi-directional many-to-one association to Direccion
+	 * 
+	 * @JsonIgnore
+	 * 
+	 * @OneToMany(mappedBy = "persona") private List<Direccion> direcciones;
+	 * 
+	 * // bi-directional many-to-one association to Telefono
+	 * 
+	 * @JsonIgnore
+	 * 
+	 * @OneToMany(mappedBy = "persona") private List<Telefono> telefonos;
+	 */
 	public int getIdpersona() {
 		return this.idpersona;
 	}
@@ -110,23 +104,17 @@ public class Persona implements Serializable {
 		return "---------Persona [idpersona=" + idpersona + ", nombre=" + nombre + ", apellido1=" + apellido1
 				+ ", apellido2=" + apellido2 + ", dni=" + dni + ", fechanacimiento=" + fechanacimiento + "]";
 	}
-/*
-	public List<Direccion> getDireccions() {
-		return this.direcciones;
-	}
-
-	public void setDireccions(List<Direccion> direcciones) {
-		this.direcciones = direcciones;
-	}
-
-	public List<Telefono> getTelefonos() {
-		return this.telefonos;
-	}
-
-	public void setTelefonos(List<Telefono> telefonos) {
-		this.telefonos = telefonos;
-	}
-*/
+	/*
+	 * public List<Direccion> getDireccions() { return this.direcciones; }
+	 * 
+	 * public void setDireccions(List<Direccion> direcciones) { this.direcciones =
+	 * direcciones; }
+	 * 
+	 * public List<Telefono> getTelefonos() { return this.telefonos; }
+	 * 
+	 * public void setTelefonos(List<Telefono> telefonos) { this.telefonos =
+	 * telefonos; }
+	 */
 	/*
 	 * 
 	 * public Direccion addDireccion(Direccion direccion) {

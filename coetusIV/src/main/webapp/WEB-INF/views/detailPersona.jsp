@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	
-	<spring:url value="resources/css/bootstrap.css" var="bootstrap" />
-	<link href="${bootstrap}" rel="stylesheet" />
-	<spring:url value="resources/css/custom.css" var="custom" />
-	<link href="${custom}" rel="stylesheet" />
+
+<spring:url value="resources/css/bootstrap.css" var="bootstrap" />
+<link href="${bootstrap}" rel="stylesheet" />
+<spring:url value="resources/css/custom.css" var="custom" />
+<link href="${custom}" rel="stylesheet" />
+<link rel="stylesheet" href="resources/css/estilos.css">
 
 <title>Detalle de persona</title>
 </head>
@@ -19,7 +20,7 @@
 		<h1>Vista detallada de ${persona.nombre}</h1>
 		<table border="1">
 			<tr>
-				<th>ID</th>
+
 				<th>Nombre</th>
 				<th>Primer Apellido</th>
 				<th>Segundo Apellido</th>
@@ -27,7 +28,7 @@
 			</tr>
 
 			<tr>
-				<th>${status.index + 1}</th>
+
 				<th>${persona.nombre}</th>
 				<th>${persona.apellido1}</th>
 				<th>${persona.apellido2}</th>
@@ -43,6 +44,10 @@
 	<br>
 	<div align="center">
 		<a href="lista">Volver a la lista</a>
+	</div>
+	<div align="center"width: 50px; height: 50px; >
+		<img style="width: 200px; height: 100px;"
+			src="https://nadandoporsonrisas.com/wp-content/uploads/2018/04/luca_tic_-_logos_formacion_y_seleccion-300x169.jpg">
 	</div>
 </body>
 </html>
