@@ -2,8 +2,6 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -14,44 +12,38 @@
 <link href="${custom}" rel="stylesheet" />
 <link rel="stylesheet" href="resources/css/estilos.css">
 
-<title>LISTADO DE USUARIOS</title>
+<title>Detalle de persona</title>
 </head>
 <body>
 	<div align="center">
-		<h1>LISTADO DE USUARIOS</h1>
-		<h3>
-			<a href="new">Clic para crear un NUEVO USUARIO</a>
-		</h3>
 
+		<h1>Vista detallada de ${persona.nombre}</h1>
 		<table border="1">
 			<tr>
-				<th>Nº</th>
+
 				<th>Nombre</th>
-				<!--<th>Teléfono</th>-->
-				<!--<th>Provincia</th>-->
-				<!--<th>Dirección</th>-->
+				<th>Primer Apellido</th>
+				<th>Segundo Apellido</th>
+				<th>Dni</th>
 			</tr>
 
-			<c:forEach var="persona" items="${contactList}" varStatus="status">
-				<tr>
-					<td>${status.index + 1}</td>
-					<td>${persona.nombre}</td>
-					<!--<td>${persona.apellido1}</td>-->
-					<!--<td>${persona.apellido2}</td>-->
-					<!--<td>${persona.dni}</td>-->
-					<!-- <td>${persona.fechanacimiento}</td> -->
-					<td><a href="editPersona?id=${persona.idpersona}">Modificar</a>
+			<tr>
+
+				<th>${persona.nombre}</th>
+				<th>${persona.apellido1}</th>
+				<th>${persona.apellido2}</th>
+				<th>${persona.dni}</th>
+
+			</tr>
 
 
-						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="delPersona?id=${persona.idpersona}">Eliminar</a>
-
-
-						&nbsp;&nbsp;&nbsp;&nbsp;<a
-						href="detailPersona?id=${persona.idpersona}">Detalle</a></td>
-				</tr>
-			</c:forEach>
 		</table>
+
+	</div>
+	<br>
+	<br>
+	<div align="center">
+		<a href="lista">Volver a la lista</a>
 	</div>
 	<div align="center"width: 50px; height: 50px; >
 		<img style="width: 200px; height: 100px;"
