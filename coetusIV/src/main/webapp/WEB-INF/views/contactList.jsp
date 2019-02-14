@@ -26,21 +26,22 @@
 			<tr>
 				<th>Nº</th>
 				<th>Nombre</th>
-				<th>Teléfono</th>
-				<th>Provincia</th>
-				<th>Dirección</th>
+				<!--<th>Teléfono</th>-->
+				<!--<th>Provincia</th>-->
+				<!--<th>Dirección</th>-->
 			</tr>
 
 			<c:forEach var="persona" items="${contactList}" varStatus="status">
 				<tr>
 					<td>${status.index + 1}</td>
 					<td>${persona.nombre}</td>
-					<td>${persona.apellido1}</td>
-					<td>${persona.apellido2}</td>
-					<td>${persona.dni}</td>
+					<!--<td>${persona.apellido1}</td>-->
+					<!--<td>${persona.apellido2}</td>-->
+					<!--<td>${persona.dni}</td>-->
 					<!-- <td>${persona.fechanacimiento}</td> -->
 					<td><a href="editPersona?id=${persona.idpersona}">Modificar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delPersona?id=${persona.idpersona}">Eliminar</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;<a href="detailPersona?id=${persona.idpersona}">Detalle</a>
 					</td>
 				</tr>
 			</c:forEach>

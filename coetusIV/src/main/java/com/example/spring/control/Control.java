@@ -94,5 +94,13 @@ public class Control {
 		return "ContactList";
 
 	}
+	
+	@GetMapping ("/detailPersona")
+	public String detailPersona(ModelMap model, @RequestParam("id") int id) {
+		logger.info("------ CONTROL: en detailPersona");
+		model.addAttribute("persona", iServicios.findPersona(id));
+		logger.info("------ CONTROL: ANTES DE SALIR de detail");
+		return "detailPersona";
+	}
 
 }
