@@ -20,7 +20,7 @@
 
 <title>Añadir contactos</title>
 </head>
-<body background >
+<body background>
 	<div align="center">
 		<h1>Añadir contactos</h1>
 		<br> <br> <br>
@@ -60,8 +60,9 @@
 		</form:form>
 
 	</div>
-	<div align="center" width: 50px; height: 50px; >
-		<img style="width:200px; height:100px;" src="https://nadandoporsonrisas.com/wp-content/uploads/2018/04/luca_tic_-_logos_formacion_y_seleccion-300x169.jpg">
+	<div align="center"width: 50px; height: 50px; >
+		<img style="width: 200px; height: 100px;"
+			src="https://nadandoporsonrisas.com/wp-content/uploads/2018/04/luca_tic_-_logos_formacion_y_seleccion-300x169.jpg">
 	</div>
 
 </body>
