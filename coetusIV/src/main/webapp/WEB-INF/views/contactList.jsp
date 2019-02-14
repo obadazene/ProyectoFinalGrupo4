@@ -41,6 +41,8 @@
 					<!--<td>${persona.dni}</td>-->
 					<!-- <td>${persona.fechanacimiento}</td> -->
 					<td><a href="editPersona?id=${persona.idpersona}">Modificar</a>
+					
+					
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="delPersona?id=${persona.idpersona}">Eliminar</a>
 						 &nbsp;&nbsp;&nbsp;&nbsp;<a href="detailPersona?id=${persona.idpersona}">Detalle</a>
 					</td>
