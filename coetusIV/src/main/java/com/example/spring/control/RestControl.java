@@ -1,5 +1,6 @@
 package com.example.spring.control;
 /**
+ * Control del rest, devuelve JSON para que Angular los reciba
  * @author Grupo4
  */
 

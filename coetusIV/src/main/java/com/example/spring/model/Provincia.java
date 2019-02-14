@@ -3,15 +3,10 @@ package com.example.spring.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 
 /**
  * 
@@ -63,30 +58,24 @@ public class Provincia implements Serializable {
 	public void setDireccions(List<Direccion> direccions) {
 		this.direccions = direccions;
 	}
-	
+
 	/*
 	 * comentado por ASR
-
-	public Direccion addDireccion(Direccion direccion) {
-		getDireccions().add(direccion);
-		direccion.setProvincia(this);
-
-		return direccion;
-	}
-
-	public Direccion removeDireccion(Direccion direccion) {
-		getDireccions().remove(direccion);
-		direccion.setProvincia(null);
-
-		return direccion;
-	}
-	
-	*/
-/*
-	@Override
-	public String toString() {
-		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direccions=" + direccions
-				+ "]";
-	}
-*/
+	 * 
+	 * public Direccion addDireccion(Direccion direccion) {
+	 * getDireccions().add(direccion); direccion.setProvincia(this);
+	 * 
+	 * return direccion; }
+	 * 
+	 * public Direccion removeDireccion(Direccion direccion) {
+	 * getDireccions().remove(direccion); direccion.setProvincia(null);
+	 * 
+	 * return direccion; }
+	 * 
+	 */
+	/*
+	 * @Override public String toString() { return "Provincia [idprovincia=" +
+	 * idprovincia + ", provincia=" + provincia + ", direccions=" + direccions +
+	 * "]"; }
+	 */
 }

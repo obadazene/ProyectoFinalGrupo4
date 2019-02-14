@@ -28,6 +28,14 @@ public class PruebaUnitariaAddPersona {
 
 	private static final Logger logger = LoggerFactory.getLogger(PruebaUnitariaAddPersona.class);
 
+	/**
+	 * Se crea una persona, la añade a la BBDD, comprueba si existe en la BBDD.
+	 * Prueba que el tamaño de la lista de personas de la BBDD al final es igual al
+	 * tamaño inicial + 1. Elimina esa persona de la BBDD
+	 * 
+	 * @throws Exception
+	 */
+
 	@Test
 	public void pruebaUnitariaAddPersona() throws Exception {
 

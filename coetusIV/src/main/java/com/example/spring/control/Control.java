@@ -120,22 +120,32 @@ public class Control {
 
 	}
 
-	/**
+	/*
 	 * Busca una persona por id
 	 * 
 	 * @param model
+	 * 
 	 * @param id
+	 * 
 	 * @return el jsp con la persona buscada
+	 *
+	 * /*@GetMapping("/busca") public String findPersona(ModelMap
+	 * model, @RequestParam("id") int id) { logger.info("-- en buscar");
+	 * model.addAttribute("persona", iServicios.findPersona(id)); return
+	 * "ContactList";
+	 * 
+	 * }
 	 */
-	@GetMapping("/busca")
-	public String findPersona(ModelMap model, @RequestParam("id") int id) {
-		logger.info("-- en buscar");
-		model.addAttribute("persona", iServicios.findPersona(id));
-		return "ContactList";
 
-	}
-	
-	@GetMapping ("/detailPersona")
+	/**
+	 * Devuelve los detalles de una persona
+	 * 
+	 * @param model
+	 * @param id
+	 * @return el jsp con los detalles de la persona buscada por id
+	 */
+
+	@GetMapping("/detailPersona")
 	public String detailPersona(ModelMap model, @RequestParam("id") int id) {
 		logger.info("------ CONTROL: en detailPersona");
 		model.addAttribute("persona", iServicios.findPersona(id));
