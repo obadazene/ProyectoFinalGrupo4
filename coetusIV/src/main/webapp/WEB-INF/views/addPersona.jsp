@@ -19,7 +19,7 @@
 
 <title>Añadir contactos</title>
 </head>
-<body>
+<body background >
 	<div align="center">
 		<h1>Añadir contactos</h1>
 		<br> <br> <br>
